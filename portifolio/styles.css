@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-aula1{
+    perspective: 1000;
+}
+
+.container-aula1:hover
+.flip, .container-aula1.hover .flip{
+    transform: rotateY(180deg);
+}
+
+.container-aula1, .frente, .verso{
+    width: 320px;
+}
+
+.flip{
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.frente, .verso{
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.frente{
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.verso{
+    transform: rotateY(180deg);
+}
+
+.card{
+    width:300px;
+    height:300px;
+    font-size:40px;
+    text-align:center;
+    line-height:300px;
+    font-family: 'Lato', sans-serif; font-weight:900;
+    text-shadow: 1px 1px 1px #fff;
+    cursor:pointer;
+}
+
+.descricao{
+    background:#00cee2;
+}
+
+.figma{
+    background:#ffb300;
+}

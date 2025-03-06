@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11</title>
+</head>
+<body>
+    <script>
+        alert("Pedra, papel e tesoura")
+
+        let escolha1 = Number(prompt("Escolha: 1 - pedra // 2 - papel // 3 - tesoura")) 
+        let escolha2 = Number(prompt("Escolha: 1 - pedra // 2 - papel // 3 - tesoura")) 
+
+        if(escolha1 == 1 && escolha2 == 2){
+            document.write(`Jogador 1: Pedra <br> Jogador 2: Papel <br> O Jogador 2 venceu`)
+        }
+        else if(escolha1 == 1 && escolha2 == 3){
+            document.write(`Jogador 1: Pedra <br> Jogador 2: Tesoura <br> O jogador 1 venceu`)
+        }
+        else if(escolha1 == 1 && escolha2 == 1){
+            document.write(`Jogador 1: Pedra <br> Jogador 2: Pedra <br> Ninguém venceu`)
+        }
+        else if(escolha1 == 2 && escolha2 == 1){
+            document.write(`Jogador 1: Papel <br> Jogador 2: Pedra <br> O jogador 1 venceu`)
+        }
+        else if(escolha1 == 2 && escolha2 == 2){
+            document.write(`Jogador 1: Papel <br> Jogador 2: Papel <br> Nínguém venceu`)
+        }
+        else if(escolha1 == 2 && escolha2 == 3){
+            document.write(`Jogador 1: Papel <br> Jogador 2: Tesoura <br> O jogador 2 venceu`)
+        }
+        else if(escolha1 == 3 && escolha2 == 1){
+            document.write(`Jogador 1: Tesoura <br> Jogador 2: Pedra <br> O jogador 2 venceu`)
+        }
+        else if(escolha1 == 3 && escolha2 == 2){
+            document.write(`Jogador 1: Tesoura <br> Jogador 2: Papel <br> O jogador 1 venceu`)
+        }
+        else if(escolha1 == 3 && escolha2 == 3){
+            document.write(`Jogador 1: Tesoura <br> Jogador 2: Tesoura <br> Ninguém venceu`)
+        }
+        else{
+            document.write(`Escolha inválida`)
+        }
+
+    </script>
+</body>
+</html>

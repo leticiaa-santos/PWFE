@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+<body>
+    <script>
+        alert("Fatorial")
+
+        let numero = Number(prompt("Informe o número para saber o fatorial"))
+        let fatorial = numero
+        for(let i = 1; i < numero; i++){
+            fatorial *= i
+        }
+        document.write(`${numero}! = ${fatorial}`)
+    </script>
+</body>
+</html>
