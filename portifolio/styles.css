@@ -101,3 +101,21 @@
 .atividade{
     color: #ffffff;
 }
+
+.exercicios{
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px 0px;
+}
+
+.exercicio{
+    box-shadow: 0px 2px 5px #4B61D1;
+    padding: 10px;
+    text-align: center;
+}
+
+.exercicio a{
+    text-decoration: none;
+}
