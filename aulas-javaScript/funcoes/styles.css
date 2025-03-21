@@ -1,0 +1,10 @@
+#minhaDiv{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-color: purple;
+    margin: 20px;
+    color: beige;
+    align-items: center;
+    justify-content: center;
+}

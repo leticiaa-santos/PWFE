@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 2 - comandos básicos</title>
+</head>
+<body>
+    <h1>Aula de Frontend!</h1>
+    <script>
+        alert("Olá")
+
+        window.confirm("Você estva com saudades né?")
+
+        let cor = window.prompt("Qual sua cor favorita?")
+        let comida = prompt("Qual sua comida favorita?")
+
+        document.write(`Sua cor favirta é ${cor} e sua comida favorita é ${comida}`)
+
+        console.log(comida)
+        console.log(cor)
+
+        //laços de repetição
+        //for - normalmente sei quantas iterações eu faço
+        
+        for(let a = 100; a > 50; a--){
+            document.write(`O número agora é ${a} <br>`)
+        }
+
+        //while - necessito de uma condição, faço enquanto for correspondente a condição
+        contador = 0
+        while(contador <= 100){
+            document.write(`Seu número é ${contador} <br>`);
+            contador += 10;
+        }
+
+        //do while - Executa pelo menos uma vez e ao final verifica a condição
+        let i = 1;
+        do{
+            if(i % 2 == 0){
+                document.write(`${i} é par <br>`)
+            } else {
+                document.write(`${i} é impar <br>`)
+            }
+            i++
+        } while(i <= 20)
+
+        //switch case - Multipla escolha mediante a condição
+        let opcao = Number(prompt("Digite a opção 1 - soma <br> 2 - subtração <br> 3 - multiplicação <br> 4 - divisão"))
+
+        let valor1 = Number(prompt("Informe um valor"))
+        let valor2 = Number(prompt("Informe um valor"))
+
+        switch(opcao){
+            case 1:
+                soma = valor1 + valor2
+                document.write(`A soma de ${valor1} + ${valor2} = ${soma}`)
+                break;
+            case 2:
+                sub = valor1 - valor2
+                document.write(`A subtração de ${valor1} - ${valor2} = ${sub}`)
+                break;
+            case 3:
+                multi = valor1 * valor2
+                document.write(`A multiplicação de ${valor1} x ${valor2} = ${multi}`)
+                break;
+            case 4:
+                divisao = valor1 / valor2
+                document.write(`A divisão de ${valor1} / ${valor2} = ${divisao}`)
+                break;
+            default:
+                document.write("Opção inválida")
+        }
+
+
+
+
+    </script>
+    
+</body>
+</html>

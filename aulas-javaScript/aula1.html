@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1</title>
+</head>
+<body>
+    <h1>Aula de Frontend!</h1>
+    <script>
+        //Alert - Exibe recados para meu usuário, onde ele só pode clicar em "OK"
+        //resumindo, quem manda sou eu
+
+        window.alert("Olá Mundo, estamos quebrando uma maldição");
+        alert("Outro alert")
+
+        //prompt - input
+        //Serve para obter respostas do usuário
+
+        //3 tipos de variável no JS
+            //let: valores que podem ser adquiridos dos usuários durante o uso da minha aplicação,
+            //const: valores imutáveis(crachados),
+            //var: é a forma legada de declarar variáveis, porém ainda visto em sistemas legados.
+        let materia = prompt("Qual sua matéria favorita?")
+        document.write(`Então quer dizer que sua matéria favorita é ${materia}`)
+
+        let nota1 = Number(prompt("Digite a nota 1"))
+        let nota2 = Number(prompt("Digite a nota 2"))
+        let media = (nota1 + nota2)/2
+        document.write(`<br>Sua média é: ${media}`)
+
+        if(media >= 5){
+            alert("Aprovado")
+        }
+        else{
+            alert("Reprovado")
+        }
+
+        //confirm - Serve para permitir escolha 
+        confirm("Vocês estão preparados para a festa de comemoração?")
+
+        
+
+    </script>
+</body>
+</html>
