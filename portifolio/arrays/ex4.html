@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 04</title>
+</head>
+<body>
+    <script>
+        let lista_numeros = []
+
+        for(let i = 1; i <= 5; i++){
+            let numeros = Number(prompt(`Informe um número`))
+            lista_numeros.push(numeros)
+            
+        }
+        
+        document.write(`Lista geral: ${lista_numeros} <p>`)
+
+        let numerosPares = lista_numeros.filter(function(numero){
+            return numero % 2 === 0;
+        })
+
+        if(numerosPares.length > 0){
+            document.write(`Números pares: ${numerosPares}`)
+        }else{
+            document.write(`Todos os números são ímpares`)
+        }
+        
+    </script>
+</body>
+</html>
