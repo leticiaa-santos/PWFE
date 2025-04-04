@@ -1,0 +1,23 @@
+.conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    color: #000000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    gap: 10px;
+}

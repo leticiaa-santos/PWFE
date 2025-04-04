@@ -1,0 +1,14 @@
+.conteiner{
+    display: flex;
+    align-items: center;
+    background-color: #141414;
+    height: 100px;
+    padding-left: 15px;
+}
+
+.titulo{
+    font-family: "Playfair Display", serif;
+    font-size: 36px;
+    color: #e04fe0;
+}
+
