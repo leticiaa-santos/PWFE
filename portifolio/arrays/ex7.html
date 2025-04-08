@@ -1,40 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 07</title>
+  <meta charset="UTF-8">
+  <title>Exercício 07</title>
 </head>
 <body>
-    <script>
-        let nomes = ["naiara", "bruna", "lara", "gabriel", "gustavo", "henrique", "murilo", "giovanna", "bruno"]
-        let encontrado = false;
-        let chances = 5;
+  <h2>Exercício 07</h2>
+  <p>Você tem até 5 tentativas para encontrar um nome na lista.</p>
+  <input type="text" id="nomeInput" placeholder="Digite um nome">
+  <button onclick="verificarNome()">Verificar</button>
+  <div id="mensagem"></div>
 
-        while(chances > 0 && !encontrado){
+  <script>
+    let nomes = ["naiara", "bruna", "lara", "gabriel", "gustavo", "henrique", "murilo", "giovanna", "bruno"];
+    let encontrado = false;
+    let chances = 5;
 
-            let verificacao = prompt("Informe um nome para verificar se está na lista")
+    function verificarNome() {
+      if (encontrado || chances === 0) return;
 
-            for(let i = 0; i < nomes.length; i++){
-                if(verificacao === nomes[i]){
-                    alert(`O nome está na lista, na posição ${i + 1}`)
-                    encontrado = true
-                    break
-                } 
-            }
-        
-            if(!encontrado) {
-                chances --;
-                if (chances > 0){
-                    alert(`Nome não encontrado! Tente novamente, você tem mais ${chances} chances`)
-                } else {
-                    alert(`Suas chances acabaram`)
-                }
-                    
-                    
-            }
+      let nomeDigitado = document.getElementById("nomeInput").value.toLowerCase();
+      let mensagem = document.getElementById("mensagem");
+
+      for (let i = 0; i < nomes.length; i++) {
+        if (nomeDigitado === nomes[i]) {
+          mensagem.innerHTML = `✅ O nome está na lista, na posição ${i + 1}`;
+          encontrado = true;
+          return;
         }
+      }
 
-    </script>
+      chances--;
+      if (chances > 0) {
+        mensagem.innerHTML = `❌ Nome não encontrado. Você ainda tem ${chances} ${chances === 1 ? "tentativa" : "tentativas"}.`;
+      } else {
+        mensagem.innerHTML = `🚫 Suas chances acabaram.`;
+      }
+    }
+  </script>
 </body>
 </html>

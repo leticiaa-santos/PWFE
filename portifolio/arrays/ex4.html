@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 04</title>
+  <meta charset="UTF-8">
+  <title>Exercício 04</title>
 </head>
 <body>
-    <script>
-        let lista_numeros = []
+  <h2>Exercício 04</h2>
+  <p>Informe 5 números quando solicitado e clique em "Executar".</p>
+  <button onclick="executar()">Executar</button>
+  <div id="resultado"></div>
 
-        for(let i = 1; i <= 5; i++){
-            let numeros = Number(prompt(`Informe um número`))
-            lista_numeros.push(numeros)
-            
-        }
-        
-        document.write(`Lista geral: ${lista_numeros} <p>`)
+  <script>
+    function executar() {
+      let lista_numeros = [];
+      let resultado = document.getElementById("resultado");
+      resultado.innerHTML = "";
 
-        let numerosPares = lista_numeros.filter(function(numero){
-            return numero % 2 === 0;
-        })
+      for(let i = 1; i <= 5; i++){
+          let numeros = Number(prompt(`Informe um número`));
+          lista_numeros.push(numeros);
+      }
 
-        if(numerosPares.length > 0){
-            document.write(`Números pares: ${numerosPares}`)
-        }else{
-            document.write(`Todos os números são ímpares`)
-        }
-        
-    </script>
+      resultado.innerHTML += `<p>Lista geral: ${lista_numeros.join(", ")}</p>`;
+
+      let numerosPares = lista_numeros.filter(function(numero){
+          return numero % 2 === 0;
+      });
+
+      if(numerosPares.length > 0){
+          resultado.innerHTML += `<p>Números pares: ${numerosPares.join(", ")}</p>`;
+      } else {
+          resultado.innerHTML += `<p>Todos os números são ímpares</p>`;
+      }
+    }
+  </script>
 </body>
 </html>

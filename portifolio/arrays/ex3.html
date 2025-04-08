@@ -1,34 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 03</title>
+  <meta charset="UTF-8">
+  <title>Exercício 03</title>
 </head>
 <body>
-    <script>
-        let idades = []
-        let soma = 0
-        let media = 0
+  <h2>Exercício 03</h2>
+  <p>Informe as idades quando solicitado e clique em "Executar".</p>
+  <button onclick="executar()">Executar</button>
+  <div id="resultado"></div>
 
-        for(let i = 1; i <= 20; i++){
-            let idade_pessoa = Number(prompt(`Informe a idade da pessoa ${i}`))
-            idades.push(idade_pessoa)
-            soma += idade_pessoa
-            
-        }
+  <script>
+    function executar() {
+      let idades = [];
+      let soma = 0;
+      let media = 0;
+      let resultado = document.getElementById("resultado");
+      resultado.innerHTML = "";
 
-        media = soma / 20
+      for(let i = 1; i <= 20; i++){
+          let idade_pessoa = Number(prompt(`Informe a idade da pessoa ${i}`));
+          idades.push(idade_pessoa);
+          soma += idade_pessoa;
+      }
 
-        document.write(`Idades: ${idades}`)
+      media = soma / 20;
 
-        document.write(`Média: ${media}`)
+      resultado.innerHTML += `<p>Idades: ${idades.join(", ")}</p>`;
+      resultado.innerHTML += `<p>Média: ${media}</p>`;
 
-        for(let idade of idades){
-            if(idade > media){
-                document.write(`<p>Idade acima da média: ${idade}`)
-            }
-        }
-    </script>
+      for(let idade of idades){
+          if(idade > media){
+              resultado.innerHTML += `<p>Idade acima da média: ${idade}</p>`;
+          }
+      }
+    }
+  </script>
 </body>
 </html>

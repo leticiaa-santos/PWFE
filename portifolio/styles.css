@@ -18,7 +18,7 @@
 
 .aulas{
     display: grid;
-    grid-template-columns: 400px 400px 200px;
+    grid-template-columns: 250px 250px 250px 250px;
     justify-content: center;
     padding: 150px;
 }
@@ -102,10 +102,10 @@
 
 .exercicios{
     display: grid;
-    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px 200px 200px;
     justify-content: center;
     gap: 50px;
-    padding: 20px 0px;
+    padding: 50px 0px;
 }
 
 .exercicio{

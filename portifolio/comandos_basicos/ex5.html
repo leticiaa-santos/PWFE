@@ -1,20 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 05</title>
+  <meta charset="UTF-8">
+  <title>Exercício 05</title>
 </head>
 <body>
-    <script>
-        alert("Clacule a área")
+  <h2>Exercício 05 - Calcular a Área de um Retângulo</h2>
 
-       let base = Number(prompt("Informe o valor da base"))
-       let altura = Number(prompt("Informe o valor da altura"))
+  <label for="base">Informe o valor da base:</label>
+  <input type="number" id="base"><br><br>
 
-       let area = base * altura
+  <label for="altura">Informe o valor da altura:</label>
+  <input type="number" id="altura"><br><br>
 
-       document.write(`A área é ${area}`)
-    </script>
+  <button onclick="calcularArea()">Calcular</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularArea() {
+      let base = Number(document.getElementById("base").value);
+      let altura = Number(document.getElementById("altura").value);
+      let area = base * altura;
+
+      document.getElementById("resultado").innerHTML = `A área é ${area}`;
+    }
+  </script>
 </body>
 </html>

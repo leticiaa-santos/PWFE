@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 04</title>
+  <meta charset="UTF-8">
+  <title>Exercício 04</title>
 </head>
 <body>
-    <script>
-        alert("Converta temperaturas")
+  <h2>Exercício 04 - Converter Celsius para Fahrenheit</h2>
 
-        let celcuis = Number(prompt("Informe a temperatura em celcius"))
+  <label for="celsius">Informe a temperatura em Celsius:</label>
+  <input type="number" id="celsius" placeholder="Ex: 25"><br><br>
 
-        let fahrenheit = (celcuis * 9/5) + 32
+  <button onclick="converter()">Converter</button>
 
-        document.write(`A tempartura ${celcuis}°C em Fahrenheit é ${fahrenheit}°F`)
-    </script>
+  <p id="resultado"></p>
+
+  <script>
+    function converter() {
+      let celsius = Number(document.getElementById("celsius").value);
+      let fahrenheit = (celsius * 9 / 5) + 32;
+
+      document.getElementById("resultado").innerHTML =
+        `A temperatura ${celsius}°C em Fahrenheit é ${fahrenheit}°F`;
+    }
+  </script>
 </body>
 </html>

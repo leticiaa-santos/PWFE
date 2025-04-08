@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 09</title>
+  <style>
+    input {
+      margin: 5px;
+      width: 60px;
+    }
+    .input-group {
+      margin-bottom: 10px;
+    }
+    button {
+      margin-top: 10px;
+    }
+    #resultado {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Exercício 09 - Vetores A, B e C</h2>
+
+  <div id="inputs"></div>
+  <button onclick="executar()">Executar</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    const inputs = document.getElementById('inputs');
+    const resultado = document.getElementById('resultado');
+
+    // Cria campos de input para os vetores A e B
+    for (let i = 0; i < 5; i++) {
+      inputs.innerHTML += `
+        <div class="input-group">
+          <label>Número A${i + 1}:</label>
+          <input type="number" id="a${i}">
+          <label>B${i + 1}:</label>
+          <input type="number" id="b${i}">
+        </div>
+      `;
+    }
+
+    function executar() {
+      let a = [], b = [], c = [];
+
+      for (let i = 0; i < 5; i++) {
+        let entradaA = Number(document.getElementById(`a${i}`).value);
+        let entradaB = Number(document.getElementById(`b${i}`).value);
+
+        a.push(entradaA);
+        b.push(entradaB);
+        c.push(entradaA, entradaB); // adiciona os dois valores de uma vez
+      }
+
+      resultado.innerHTML = `
+        <p><strong>Vetor A:</strong> ${a.join(', ')}</p>
+        <p><strong>Vetor B:</strong> ${b.join(', ')}</p>
+        <p><strong>Vetor C (intercalado):</strong> ${c.join(', ')}</p>
+      `;
+    }
+  </script>
+</body>
+</html>

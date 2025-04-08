@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercício 08</title>
+</head>
+<body>
+  <h2>Exercício 08 - Vetores A e B (metade dos valores)</h2>
+
+  <div id="inputs"></div>
+  <button onclick="executar()">Executar</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    const inputs = document.getElementById('inputs');
+    const resultado = document.getElementById('resultado');
+
+    // Cria os inputs para 6 números
+    for (let i = 0; i < 6; i++) {
+      inputs.innerHTML += `<input type="number" id="num${i}" placeholder="Número ${i + 1}"> `;
+    }
+
+    function executar() {
+      let a = [], b = [];
+
+      for (let i = 0; i < 6; i++) {
+        let valor = Number(document.getElementById(`num${i}`).value);
+        a.push(valor);
+        b.push(valor / 2);
+      }
+
+      resultado.innerHTML = `
+        <p><strong>Vetor A:</strong> ${a.join(', ')}</p>
+        <p><strong>Vetor B (metade de A):</strong> ${b.join(', ')}</p>
+      `;
+    }
+  </script>
+</body>
+</html>

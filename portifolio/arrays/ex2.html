@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 02</title>
+  <meta charset="UTF-8">
+  <title>Exercício 02</title>
 </head>
 <body>
-    <script>
-        let numeros = [5, 7.5, 9.5, 2, 10, 4.5, 9, 8]
-        let soma = 0
+  <h2>Exercício 02</h2>
+  <p>Os valores do vetor já estão definidos no código.</p>
+  <button onclick="executar()">Executar</button>
+  <div id="resultado"></div>
 
-        document.write(`Valores: ${numeros} <br>`)
+  <script>
+    function executar() {
+      let numeros = [5, 7.5, 9.5, 2, 10, 4.5, 9, 8];
+      let soma = 0;
+      let resultado = document.getElementById("resultado");
 
-        for(let numero of numeros){
-            soma += numero
-        }
+      resultado.innerHTML = `Valores: ${numeros.join(", ")} <br>`;
 
-        let media = soma / 8
+      for(let numero of numeros){
+          soma += numero;
+      }
 
-        document.write(`Média: ${media}`)
-    </script>
+      let media = soma / 8;
+
+      resultado.innerHTML += `Média: ${media}`;
+    }
+  </script>
 </body>
 </html>

@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 10</title>
+  <meta charset="UTF-8">
+  <title>Exercício 10</title>
 </head>
 <body>
-    <script>
-        alert("Calcule tabuada")
+  <h2>Exercício 10 - Calcule a Tabuada</h2>
 
-        let numero = Number(prompt("Informe um número de 1 a 9"))
+  <label for="numero">Informe um número de 1 a 9:</label>
+  <input type="number" id="numero" min="1" max="9"><br><br>
 
-        for(let i = 0; i <= 10; i ++){
+  <button onclick="calcularTabuada()">Calcular Tabuada</button>
 
-            let tabuada = numero * i
-            document.write(`${numero} X ${i} = ${tabuada} <br>`)
+  <div id="resultado"></div>
+
+  <script>
+    function calcularTabuada() {
+      let numero = Number(document.getElementById("numero").value);
+      let resultado = "";
+
+      if (numero < 1 || numero > 9) {
+        resultado = "Informe um número entre 1 e 9.";
+      } else {
+        for (let i = 0; i <= 10; i++) {
+          resultado += `${numero} x ${i} = ${numero * i} <br>`;
         }
-    </script>
+      }
+
+      document.getElementById("resultado").innerHTML = resultado;
+    }
+  </script>
 </body>
 </html>
