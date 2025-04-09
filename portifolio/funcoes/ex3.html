@@ -10,17 +10,17 @@
     <label for="string">Informe um nome:</label>
     <input type="text" id="string"><br><br>
 
-    <button onclick="inverter()">Separar</button>
+    <button onclick="separar()">Separar</button>
 
     <p id="resultado"></p>
 
     <script>
-        function inverter(){
+        function separar(){
             let string = (document.getElementById('string').value);
 
             let separar = string.split("")
 
-            document.getElementById('resultado').innerHTML = `A palavra "${string}" invertida é "${separar}"`;
+            document.getElementById('resultado').innerHTML = `A palavra "${string}" separada é "${separar}"`;
         }
     </script>
 </body>
