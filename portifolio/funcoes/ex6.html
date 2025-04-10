@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 06</title>
+</head>
+<body>
+    <label for="hora">Informe a hora:</label>
+    <input type="number" id="hora"><br><br>
+
+    <button onclick="converter()">Ver minutos</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        
+        function converter(){
+            let hora = Number(document.getElementById('hora').value)
+            let minutos = hora * 60
+
+            document.getElementById('resultado').innerHTML = `${hora} horas = ${minutos} minutos`
+        }
+    </script>
+</body>
+</html>
