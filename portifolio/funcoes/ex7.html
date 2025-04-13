@@ -6,6 +6,46 @@
     <title>Exercício 07</title>
 </head>
 <body>
+    <form onsubmit="return calcular(event)">
+        <label for="valor">Digite um valor (R$): </label>
+        <input type="number" id="valor" step="0.01"><br><br>
+
+        <button type="submit">Enviar</button>
+
+    </form>
     
+    <div id="resultado" style="margin-top: 20px; font-family: Arial;"></div>
+    <script>
+        const calcular = (event) => {
+            event.preventDefault();
+            const valorInput = document.getElementById('valor');
+            let valor = parseInt(valorInput.value);
+            
+            const resultado = document.getElementById('resultado');
+            resultado.innerHTML = "";
+
+            if(isNaN(valor) || valor <= 0){
+                alert("Digite um valor válido")
+                return
+            }
+
+            const cedulas = [200, 100, 50, 20, 10, 5, 1];
+            const contagem = {};
+
+            cedulas.forEach(cedula => {
+                contagem[cedula] = Math.floor(valor / cedula);
+                valor = valor % cedula;
+            });
+
+            resultado.innerHTML += "Cédulas necessárias para formar o seu valor:"
+            
+            for(let cedula in contagem){
+                if(contagem[cedula] > 0){
+                    resultado.innerHTML += `<p>R$ ${cedula}: ${contagem[cedula]} cédulas</p>`
+                }
+            }
+        }
+    </script>
+
 </body>
 </html>

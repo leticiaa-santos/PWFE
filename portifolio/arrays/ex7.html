@@ -5,7 +5,7 @@
   <title>Exercício 07</title>
 </head>
 <body>
-  <h2>Exercício 07</h2>
+  <h2>Exercício 07 - Verificar nome com tentativas</h2>
   <p>Você tem até 5 tentativas para encontrar um nome na lista.</p>
   <input type="text" id="nomeInput" placeholder="Digite um nome">
   <button onclick="verificarNome()">Verificar</button>
@@ -24,7 +24,7 @@
 
       for (let i = 0; i < nomes.length; i++) {
         if (nomeDigitado === nomes[i]) {
-          mensagem.innerHTML = `✅ O nome está na lista, na posição ${i + 1}`;
+          mensagem.innerHTML = `O nome está na lista, na posição ${i + 1}`;
           encontrado = true;
           return;
         }
@@ -32,9 +32,9 @@
 
       chances--;
       if (chances > 0) {
-        mensagem.innerHTML = `❌ Nome não encontrado. Você ainda tem ${chances} ${chances === 1 ? "tentativa" : "tentativas"}.`;
+        mensagem.innerHTML = `Nome não encontrado. Você ainda tem ${chances} ${chances === 1 ? "tentativa" : "tentativas"}.`;
       } else {
-        mensagem.innerHTML = `🚫 Suas chances acabaram.`;
+        mensagem.innerHTML = `Suas chances acabaram.`;
       }
     }
   </script>

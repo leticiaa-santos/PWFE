@@ -1,109 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
-    <title>Exercícios - Comandos Básicos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../styles.css">
+  <script defer src="script.js"></script>
+  <title>Exercícios Aula 4</title>
 </head>
 <body>
-    <header>
-        <section class="container-header">
-            <div class="titulo">
-                <h1>Exercicíos Aula 4</h1>
-            </div>
-        </section>
-    </header>
+  <header>
+    <section class="container-header">
+      <div class="titulo">
+        <h1>Exercicíos Aula 4</h1>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section class="exercicios">
 
-    <main>
-        <section class="exercicios">
-            <div class="exercicio">
-                <a href="ex1.html">
-                    <h3>Exercício 01</h3>
-                    <p class="descricao-ex">Faça uma calculadora usando o conceito de Arrow Function.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex2.html">
-                    <h3>Exercício 02</h3>
-                    <p class="descricao-ex">Inverta uma string informada pelo usuário.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex3.html">
-                    <h3>Exercício 03</h3>
-                    <p class="descricao-ex">Pedir um nome e imprimir cada letra separadamente.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex4.html">
-                    <h3>Exercício 04</h3>
-                    <p class="descricao-ex">Pedir uma idade e dizer se a pessoa pode tirar carteira de motorista.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex5.html">
-                    <h3>Exercício 05</h3>
-                    <p class="descricao-ex">Criar um programa que peça três números e exiba-os em ordem crescente.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex6.html">
-                    <h3>Exercício 06</h3>
-                    <p class="descricao-ex">Criar um programa que converta horas para minutos.</p>
-                </a>                
-            </div>
-            <div class="exercicio">
-                <a href="ex7.html">
-                    <h3>Exercício 07</h3>
-                    <p class="descricao-ex">Criar um programa que peça um valor e exiba quantas cédulas de R$200, R$100, R$50, R$20, R$10, R$5 e R$1 seriam necessárias para formar esse valor.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex8.html">
-                    <h3>Exercício 08</h3>
-                    <p class="descricao-ex">Criar um programa que peça um número e exiba sua raiz quadrada.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex9.html">
-                    <h3>Exercício 09</h3>
-                    <p class="descricao-ex">Faça um formulário de cadastro, onde o usuário informará: Nome; Endereço; Sexo (radio button); Telefone; Celular; Email
-                        Onde nenhum dos campos pode estar vazio no momento em que selecionado um botão “Enviar”. 
-                        Caso isso aconteça, deve ser exibido um alert na tela informando o campo vazio.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex10.html">
-                    <h3>Exercício 10</h3>
-                    <p class="descricao-ex">Calcular Imposto de Renda (Faixas):
-                        Calcule o imposto de renda com base em faixas salariais com arrow function.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex11.html">
-                    <h3>Exercício 11</h3>
-                    <p class="descricao-ex">Calcular INSS:
-                        Calcule o valor do INSS (contribuição para a previdência social) com base em uma alíquota e um salário usando arrow function.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex12.html">
-                    <h3>Exercício 12</h3>
-                    <p class="descricao-ex">Calcular Juros Compostos:
-                        Calcule o valor dos juros compostos sobre um capital inicial.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex12.html">
-                    <h3>Exercício 13</h3>
-                    <p class="descricao-ex">Simular Financiamento:
-                        Calcule o valor das parcelas de um financiamento (use uma fórmula simplificada).</p>
-                </a>
-            </div>
-            
-            
-        </section>
-    </main>
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex1.html">
+            <h3>Exercício 01</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Faça uma calculadora usando o conceito de Arrow Function.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex2.html">
+            <h3>Exercício 02</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Inverta uma string informada pelo usuário.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex3.html">
+            <h3>Exercício 03</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Pedir um nome e imprimir cada letra separadamente.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex4.html">
+            <h3>Exercício 04</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Pedir uma idade e dizer se a pessoa pode tirar carteira de motorista.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex5.html">
+            <h3>Exercício 05</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Criar um programa que peça três números e exiba-os em ordem crescente.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex6.html">
+            <h3>Exercício 06</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Criar um programa que converta horas para minutos.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex7.html">
+            <h3>Exercício 07</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Criar um programa que peça um valor e exiba quantas cédulas de R$200, R$100, R$50, R$20, R$10, R$5 e R$1 seriam necessárias para formar esse valor.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex8.html">
+            <h3>Exercício 08</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Criar um programa que peça um número e exiba sua raiz quadrada.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex9.html">
+            <h3>Exercício 09</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Faça um formulário de cadastro, onde o usuário informará: Nome; Endereço; Sexo (radio button); Telefone; Celular; Email. Onde nenhum dos campos pode estar vazio no momento em que selecionado um botão “Enviar”. Caso isso aconteça, deve ser exibido um alert na tela informando o campo vazio.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex10.html">
+            <h3>Exercício 10</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Calcular Imposto de Renda (Faixas): Calcule o imposto de renda com base em faixas salariais com arrow function.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex11.html">
+            <h3>Exercício 11</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Calcular INSS: Calcule o valor do INSS (contribuição para a previdência social) com base em uma alíquota e um salário usando arrow function.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex12.html">
+            <h3>Exercício 12</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Calcular Juros Compostos: Calcule o valor dos juros compostos sobre um capital inicial.</p>
+      </div>
+
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex13.html">
+            <h3>Exercício 13</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Simular Financiamento: Calcule o valor das parcelas de um financiamento (use uma fórmula simplificada).</p>
+      </div>
+
+    </section>
+  </main>
 </body>
 </html>

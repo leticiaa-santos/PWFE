@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+<body>
+    <form onsubmit="return calcularINSS(event)">
+        <label for="salario">Digite o valor do seu salário bruto: </label>
+        <input type="number" id="salario" step="0.01"><br><br>
+
+        <button type="submit">Calcular IR</button>
+
+    </form>
+    
+    <div id="resultado" style="margin-top: 20px; font-family: Arial;"></div>
+
+
+    <script>
+        const calcularINSS = (event) => {
+            event.preventDefault();
+
+            const salario = parseFloat(document.getElementById('salario').value);
+            const resultado = document.getElementById('resultado');
+            resultado.innerHTML = "";
+
+            if(isNaN(salario) || salario <= 0){
+                alert("Digite um salário básico")
+                return;
+            }
+
+            let aliquota = 0;
+
+            if (salario <= 1412) {
+                aliquota = 0.075;
+            } else if (salario <= 2666.68) {
+                aliquota = 0.09;
+            } else if (salario <= 4000.03) {
+                aliquota = 0.12;
+            } else if (salario <= 7786.02) {
+                aliquota = 0.14;
+            } else {
+                alert("O salário informado está acima do teto do INSS")
+                return;
+            }
+
+            let inss = salario * aliquota;
+
+            resultado.innerHTML = `
+                <p>Salário bruto: R$ ${salario.toFixed(2)}</p>
+                <p>Valor INSS: R$ ${inss.toFixed(2)}</p>
+            `
+        }
+    </script>
+</body>
+</html>

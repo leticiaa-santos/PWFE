@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+<body>
+    <form onsubmit="return financiamento(event)">
+        <label for="valor">Digite o valor financiado: (R$)</label>
+        <input type="number" id="valor" step="0.01"><br><br>
+
+        <label for="juros">Taxa de juros (% ao mês): </label>
+        <input type="number" id="juros" step="0.01"><br><br>
+
+        <label for="parcelas">Números de parcelas: </label>
+        <input type="number" id="parcelas"><br><br>
+
+        <button type="submit">Simular Financiamento</button>
+
+    </form>
+
+    <div id="resultado" style="margin-top: 20px;"></div>
+
+    <script>
+        const financiamento = (event) => {
+            event.preventDefault();
+
+            const valor = parseFloat(document.getElementById('valor').value);
+            const juros = parseFloat(document.getElementById('juros').value) / 100;
+            const parcelas = parseInt(document.getElementById('parcelas').value);
+            const resultado = document.getElementById('resultado');
+
+            if(isNaN(valor) || isNaN(juros) || isNaN(parcelas) || parcelas <= 0){
+                alert("Você precisa preencher os campos corretamente")
+                return;
+            }
+
+            const parcela = (valor * juros) / (1 - Math.pow(1 + juros, -parcelas));
+            const totalPago = parcela * parcelas;
+
+            resultado.innerHTML = `
+                <p>Valor de cada parcela: R$ ${parcela.toFixed(2)}</p>
+                <p>Total pago: R$ ${totalPago.toFixed(2)}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

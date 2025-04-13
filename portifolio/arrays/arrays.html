@@ -1,82 +1,116 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
-    <title>Exercicios - Arrays</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../styles.css">
+    <script defer src="script.js"></script>
+  <title>Exercícios Aula 3</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <section class="container-header">
-            <div class="titulo">
-                <h1>Exercicíos Aula 3</h1>
-            </div>
-        </section>
-    </header>
-    <main>
-        <section class="exercicios">
-            <div class="exercicio">
-                <a href="ex1.html">
-                    <h3>Exercício 01</h3>
-                    <p class="descricao-ex">Desenvolva um programa que a partir de um vetor de inteiros com 5 valores inicializados na declaração apresente o dobro de cada valor armazenado.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex2.html">
-                    <h3>Exercício 02</h3>
-                    <p class="descricao-ex">Desenvolva um programa que a partir de um vetor de inteiros com 8 valores inicializados na declaração apresente a média aritméticas desses valores.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex3.html">
-                    <h3>Exercício 03</h3>
-                    <p class="descricao-ex">Desenvolva um programa que leia a idade de 20 pessoas e apresente as idades acima da média.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex4.html">
-                    <h3>Exercício 04</h3>
-                    <p class="descricao-ex">Desenvolva um programa que leia 10 números e apresente os valores pares.
-                        Caso não tenha nenhum número par apresente a mensagem "Todos os números são ímpares."</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex5.html">
-                    <h3>Exercício 05</h3>
-                    <p class="descricao-ex">Desenvolva um programa que leia 8 números garantindo que os valores informados estejam entre 100 e 200
-                        (caso não esteja apresente uma mensagem de "valor inválido"). Depois de preenchido apresente os valores armazenados.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex6.html">
-                    <h3>Exercício 06</h3>
-                    <p class="descricao-ex">Desenvolva um programa que a partir de um vetor de Strings com 10 nomes inicializados na declaração leia um novo nome e verifique se ele está armazenado no vetor, se estiver, apresenta a posição (indice) onde ele está, caso contrário, apresente a mensagem "Nome não encontrado!"</p>
-                </a>                
-            </div>
-            <div class="exercicio">
-                <a href="ex7.html">
-                    <h3>Exercício 07</h3>
-                    <p class="descricao-ex">Desenvolva uma nova versão do programa anterior em que o usuário terá a quantidade de tentativas limitada a 5. Caso o nome seja encontrado apresente a posição (indice) onde ele está e em qual tentativa ele foi encontrado.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex8.html">
-                    <h3>Exercício 08</h3>
-                    <p class="descricao-ex">Desenvolva um programa que leia 6 números inteiros e armazene em um vetor A.
-                        Carregue um vetor B (de mesmo tipo e tamanho) com a metade dos valores armazenados em A.
-                        Apresente os valores dos dois vetores.</p>
-                </a>
-            </div>
-            <div class="exercicio">
-                <a href="ex9.html">
-                    <h3>Exercício 09</h3>
-                    <p class="descricao-ex">Desenvolva um programa que leia 5 números inteiros e armazene em um vetor A.
-                        Leia 5 números inteiros e armazene em um vetor B.
-                        Carregue e apresente um vetor C com os valores de A e B alternados.</p>
-                </a>
-            </div>
-        </section>
-    </main>
+  <header>
+    <section class="container-header">
+      <div class="titulo">
+        <h1>Exercícios Aula 3</h1>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section class="exercicios">
+      
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex1.html">
+            <h3>Exercício 01</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Desenvolva um programa que a partir de um vetor de inteiros com 5 valores inicializados na declaração apresente o dobro de cada valor armazenado.</p>
+      </div>
+    
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex2.html">
+            <h3>Exercício 02</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Desenvolva um programa que a partir de um vetor de inteiros com 8 valores inicializados na declaração apresente a média aritméticas desses valores.</p>
+      </div>
+    
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex3.html">
+            <h3>Exercício 03</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Desenvolva um programa que leia a idade de 20 pessoas e apresente as idades acima da média.</p>
+      </div>
+    
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex4.html">
+            <h3>Exercício 04</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Desenvolva um programa que leia 10 números e apresente os valores pares. Caso não tenha nenhum número par apresente a mensagem "Todos os números são ímpares."</p>
+      </div>
+    
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex5.html">
+            <h3>Exercício 05</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Desenvolva um programa que leia 8 números garantindo que os valores informados estejam entre 100 e 200 (caso não esteja apresente uma mensagem de "valor inválido"). Depois de preenchido apresente os valores armazenados.</p>
+      </div>
+    
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex6.html">
+            <h3>Exercício 06</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Desenvolva um programa que a partir de um vetor de Strings com 10 nomes inicializados na declaração leia um novo nome e verifique se ele está armazenado no vetor, se estiver, apresenta a posição (indice) onde ele está, caso contrário, apresente a mensagem "Nome não encontrado!"</p>
+      </div>
+    
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex7.html">
+            <h3>Exercício 07</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Desenvolva uma nova versão do programa anterior em que o usuário terá a quantidade de tentativas limitada a 5. Caso o nome seja encontrado apresente a posição (indice) onde ele está e em qual tentativa ele foi encontrado.</p>
+      </div>
+    
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex8.html">
+            <h3>Exercício 08</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Desenvolva um programa que leia 6 números inteiros e armazene em um vetor A. Carregue um vetor B (de mesmo tipo e tamanho) com a metade dos valores armazenados em A. Apresente os valores dos dois vetores.</p>
+      </div>
+    
+      <div class="exercicio">
+        <div class="exercicio-header">
+          <a href="ex9.html">
+            <h3>Exercício 09</h3>
+          </a>
+          <button class="toggle-desc">▼</button>
+        </div>
+        <p class="descricao-ex">Desenvolva um programa que leia 5 números inteiros e armazene em um vetor A. Leia 5 números inteiros e armazene em um vetor B. Carregue e apresente um vetor C com os valores de A e B alternados.</p>
+      </div>
+    
+    </section>
+  </main>
 </body>
 </html>

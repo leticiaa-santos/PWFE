@@ -7,42 +7,46 @@
 <body>
   <h2>Exercício 11 - Pedra, Papel e Tesoura</h2>
 
-  <label for="escolha1">Jogador 1 (1 - Pedra | 2 - Papel | 3 - Tesoura):</label>
-  <input type="number" id="escolha1" min="1" max="3"><br><br>
-
-  <label for="escolha2">Jogador 2 (1 - Pedra | 2 - Papel | 3 - Tesoura):</label>
-  <input type="number" id="escolha2" min="1" max="3"><br><br>
+  <label for="escolha">Sua jogada (1 - Pedra | 2 - Papel | 3 - Tesoura):</label>
+  <input type="number" id="escolha" min="1" max="3"><br><br>
 
   <button onclick="jogar()">Jogar</button>
 
-  <div id="resultado"></div>
+  <div id="resultado" style="margin-top: 20px;"></div>
 
   <script>
-    function jogar() {
-      let escolha1 = Number(document.getElementById("escolha1").value);
-      let escolha2 = Number(document.getElementById("escolha2").value);
+    const opcoes = ["", "Pedra", "Papel", "Tesoura"];
+
+    function jogar(){
+      const escolhaJogador = Number(document.getElementById("escolha").value);
+      const escolhaComputador = Math.floor(Math.random() * 3) + 1;
+
       let resultado = "";
 
-      if (escolha1 == 1 && escolha2 == 2) {
-        resultado = `Jogador 1: Pedra <br> Jogador 2: Papel <br> O Jogador 2 venceu`;
-      } else if (escolha1 == 1 && escolha2 == 3) {
-        resultado = `Jogador 1: Pedra <br> Jogador 2: Tesoura <br> O jogador 1 venceu`;
-      } else if (escolha1 == 1 && escolha2 == 1) {
-        resultado = `Jogador 1: Pedra <br> Jogador 2: Pedra <br> Ninguém venceu`;
-      } else if (escolha1 == 2 && escolha2 == 1) {
-        resultado = `Jogador 1: Papel <br> Jogador 2: Pedra <br> O jogador 1 venceu`;
-      } else if (escolha1 == 2 && escolha2 == 2) {
-        resultado = `Jogador 1: Papel <br> Jogador 2: Papel <br> Ninguém venceu`;
-      } else if (escolha1 == 2 && escolha2 == 3) {
-        resultado = `Jogador 1: Papel <br> Jogador 2: Tesoura <br> O jogador 2 venceu`;
-      } else if (escolha1 == 3 && escolha2 == 1) {
-        resultado = `Jogador 1: Tesoura <br> Jogador 2: Pedra <br> O jogador 2 venceu`;
-      } else if (escolha1 == 3 && escolha2 == 2) {
-        resultado = `Jogador 1: Tesoura <br> Jogador 2: Papel <br> O jogador 1 venceu`;
-      } else if (escolha1 == 3 && escolha2 == 3) {
-        resultado = `Jogador 1: Tesoura <br> Jogador 2: Tesoura <br> Ninguém venceu`;
+      if (escolhaJogador < 1 || escolhaJogador > 3) {
+        resultado = "Escolha inválida. Escolha entre 1 (Pedra), 2 (Papel) ou 3 (Tesoura).";
+      } else if (escolhaJogador === escolhaComputador) {
+        resultado = `
+          Sua escolha: ${opcoes[escolhaJogador]}<br>
+          Escolha do computador: ${opcoes[escolhaComputador]}<br>
+          Empate!
+        `;
+      } else if (
+        (escolhaJogador === 1 && escolhaComputador === 3) ||
+        (escolhaJogador === 2 && escolhaComputador === 1) ||
+        (escolhaJogador === 3 && escolhaComputador === 2)
+      ) {
+        resultado = `
+          Sua escolha: ${opcoes[escolhaJogador]}<br>
+          Escolha do compuatdor: ${opcoes[escolhaComputador]}<br>
+          Você venceu!
+        `;
       } else {
-        resultado = `Escolha inválida`;
+        resultado = `
+          Sua escolha: ${opcoes[escolhaJogador]}<br>
+          Escolha do computador: ${opcoes[escolhaComputador]}<br>
+          Computador venceu!
+        `;
       }
 
       document.getElementById("resultado").innerHTML = resultado;

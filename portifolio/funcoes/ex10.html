@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+</head>
+<body>
+    <form onsubmit="return calcularIR(event)">
+        <label for="salario">Digite o valor do seu salário bruto: </label>
+        <input type="number" id="salario" step="0.01"><br><br>
+
+        <button type="submit">Calcular IR</button>
+
+    </form>
+    
+    <div id="resultado" style="margin-top: 20px; font-family: Arial;"></div>
+
+
+    <script>
+        const calcularIR = (event) => {
+            event.preventDefault();
+
+            const salario = parseFloat(document.getElementById('salario').value)
+            const resultado = document.getElementById('resultado')
+            resultado.innerHTML = "";
+
+            if(isNaN(salario) || salario <= 0){
+                alert("Digite um valor válido")
+                return
+            }
+
+            let imposto = 0;
+            let aliquota = 0;
+            let deducao = 0;
+
+            if (salario <= 2112.00) {
+                aliquota = 0;
+                deducao = 0;
+            } else if (salario <= 2826.65) {
+                aliquota = 0.075;
+                deducao = 158.40;
+            } else if (salario <= 3751.05) {
+                aliquota = 0.15;
+                deducao = 370.40;
+            } else if (salario <= 4664.68) {
+                aliquota = 0.225;
+                deducao = 651.73;
+            } else {
+                aliquota = 0.275;
+                deducao = 884.96;
+            }
+
+            imposto = (salario * aliquota) - deducao;
+
+            if(imposto < 0){
+                imposto = 0;
+            }
+
+            const salarioLiquido = salario - imposto;
+
+            resultado.innerHTML = `
+                <p>Salário bruto: R$ ${salario.toFixed(2)}</p>
+                <p>Valor IR: R$ ${imposto.toFixed(2)}</p>
+                <p>Salário líquido: R$ ${salarioLiquido.toFixed(2)}</p>
+            `
+        }
+    </script>
+</body>
+</html>

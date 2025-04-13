@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 12</title>
+</head>
+<body>
+    <form onsubmit="return calcularJuros(event)">
+        <label for="capital">Digite o capital: (R$)</label>
+        <input type="number" id="capital" step="0.01"><br><br>
+
+        <label for="taxa">Taxa de juros (% ao mês): </label>
+        <input type="number" id="taxa" step="0.01"><br><br>
+
+        <label for="tempo">Tempo (em meses): </label>
+        <input type="number" id="tempo" step="0.01"><br><br>
+
+        <button type="submit">Calcular Juros</button>
+
+    </form>
+    
+    <div id="resultado" style="margin-top: 20px; font-family: Arial;"></div>
+
+    <script>
+        const calcularJuros = (event) => {
+            event.preventDefault();
+
+            const capital = parseFloat(document.getElementById('capital').value);
+            const taxa = parseFloat(document.getElementById('taxa').value) / 100;
+            const tempo = parseInt(document.getElementById('tempo').value);
+            const resultado = document.getElementById('resultado');
+
+            if(isNaN(capital) || isNaN(taxa) || isNaN(tempo)){
+                alert("Preencha os campos com valores válidos")
+                return;
+            }
+
+            const montante = capital * Math.pow(1 + taxa, tempo);
+
+            resultado.innerHTML = `
+                <p>Montante final após ${tempo} meses: R$ ${montante.toFixed(2)}</p>
+            `
+        }
+    </script>
+</body>
+</html>

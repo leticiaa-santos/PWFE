@@ -5,8 +5,7 @@
   <title>Exercício 06</title>
 </head>
 <body>
-  <h2>Exercício 06</h2>
-  <p>Digite um nome para verificar se está na lista:</p>
+  <h2>Exercício 06 - Verificar se o nome está na lista</h2>
   <input type="text" id="nomeInput" placeholder="Digite o nome aqui">
   <button onclick="verificarNome()">Verificar</button>
   <div id="resultado"></div>
@@ -20,14 +19,14 @@
 
       for (let i = 0; i < nomes.length; i++) {
         if (verificacao === nomes[i]) {
-          resultado.innerHTML = `✅ O nome está na lista, na posição ${i + 1}`;
+          resultado.innerHTML = `O nome está na lista, na posição ${i + 1}`;
           encontrado = true;
           break;
         }
       }
 
       if (!encontrado) {
-        resultado.innerHTML = `❌ Nome não encontrado!`;
+        resultado.innerHTML = `Nome não encontrado!`;
       }
     }
   </script>
