@@ -5,10 +5,16 @@
   <title>Exercício 07</title>
 </head>
 <body>
+
   <h2>Exercício 07 - Verificar nome com tentativas</h2>
+
   <p>Você tem até 5 tentativas para encontrar um nome na lista.</p>
-  <input type="text" id="nomeInput" placeholder="Digite um nome">
-  <button onclick="verificarNome()">Verificar</button>
+
+  <section class="atividade">
+    <input type="text" id="nomeInput" placeholder="Digite um nome">
+    <button onclick="verificarNome()">Verificar</button>
+  </section>
+  
   <div id="mensagem"></div>
 
   <script>
@@ -38,5 +44,42 @@
       }
     }
   </script>
+
+  <style>
+    h2{
+    text-align: center;
+    }
+
+    p{
+      text-align: center;
+    }
+
+    .atividade{
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+  
+    input{
+      display: flex;
+      margin: auto;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+  button{
+    display: flex;
+    margin: auto;
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  #mensagem{
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+  </style>
+
 </body>
 </html>

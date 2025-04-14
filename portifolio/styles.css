@@ -4,10 +4,14 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #f9f9f9;
+    color: #1e1e2f;
+}
+
 .container-header{
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .inicio {
@@ -15,10 +19,13 @@
     justify-content: center;
     align-items: center;
     gap: 80px;
-    padding: 80px 20px;
+    padding: 40px 10px;
     flex-wrap: wrap;
-    background: linear-gradient(to right, #a18cd1, #fbc2eb);
-    color: #fff;
+    background-color: #d1b3ff;
+    margin: 50px auto ;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
 .image-js {
@@ -33,24 +40,23 @@
 .descricao-inicio h1 {
     font-size: 2rem;
     margin-bottom: 20px;
+    color: #4b0082;
 }
 
 .descricao-inicio p {
-    max-width: 500px;
-    font-size: 1rem;
+    max-width: 450px;
+    font-size: 1.2rem;
+    color: #4b0082;
 }
 
-/* Sessão das Aulas */
 .aulas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
     justify-content: center;
-    padding: 80px 60px;
-    background-color: #fff;
+    padding: 40px 60px;
 }
 
-/* Flip Card */
 .container-aula {
     perspective: 1000px;
 }
@@ -86,7 +92,6 @@
     transform: rotateY(180deg);
 }
 
-/* Card base */
 
 .card {
     height: 100%;
@@ -94,7 +99,7 @@
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    background: linear-gradient(145deg, #6a0dad, #9d50ff);
+    background: #d1b3ff;
 }
 
 .descricao {
@@ -108,7 +113,6 @@
 }
 
 .titulo-aula {
-    border: 1px solid #4b0082;
     background-color: #ffffff;
     color: #6a0dad;
     padding: 8px 18px;
@@ -117,19 +121,20 @@
     box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
     z-index: 10;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 
-/* Conteúdo do card */
 .tema, .atividade {
     padding: 30px 0px;
-    font-size: 1rem;
-    padding-top: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    color: #4b0082;
 }
 
-/* Verso do card */
 .acessar {
     background: linear-gradient(145deg, #9d50ff, #6a0dad);
     display: flex;
@@ -139,7 +144,7 @@
 }
 
 .acessar a {
-    font-size: 1.1rem;
+    font-size: 1.6rem;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
@@ -147,18 +152,20 @@
 }
 
 .acessar a:hover {
-    opacity: 0.8;
+    opacity: 0.8; 
+    color: #df8eff;
 }
 
-.tema,
-.atividade {
-    font-size: 1rem;
+.titulo{
+    text-align: center;
+    color: #4b0082;
+    padding: 30px;
 }
 
 .exercicios {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 50px;
     justify-content: center;
     padding: 40px 20px;
     align-items: flex-start;
@@ -166,12 +173,12 @@
   
   .exercicio {
     width: 300px;
-    background: #f9f9f9;
+    background: #ffffff;
     border-radius: 15px;
     box-shadow: 0px 4px 8px rgba(75, 97, 209, 0.2);
     overflow: hidden;
     transition: transform 0.3s;
-    padding: 20px;
+    padding: 50px 25px;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -183,6 +190,7 @@
   .exercicio a {
     text-decoration: none;
     color: #333;
+    font-size: 1.2rem;
   }
   
   .exercicio-header {
@@ -194,16 +202,18 @@
   .toggle-desc {
     background: none;
     border: none;
-    font-size: 1.2rem;
-    color: #4B61D1;
+    font-size: 1.3rem;
+    color: #4b0082;
     cursor: pointer;
   }
   
   .descricao-ex {
     display: none;
-    margin-top: 15px;
-    font-size: 0.9rem;
+    margin-top: 25px;
+    font-size: 1.2rem;
     color: #444;
+    border-top: 1px solid;
+    line-height: 1.5rem;
   }
   
   .descricao-ex.show {

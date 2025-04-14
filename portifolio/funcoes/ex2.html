@@ -6,9 +6,12 @@
     <title>Exercício 02</title>
 </head>
 <body>
+    <h2>Exercício 02 - Inverter palavra</h2>
 
-    <label for="string">Informe uma palavra para inverter:</label>
-    <input type="text" id="string"><br><br>
+    <section class="campo">
+        <label for="string">Informe uma palavra para inverter:</label>
+        <input type="text" id="string">
+    </section>
 
     <button onclick="inverter()">Inverter</button>
 
@@ -23,5 +26,41 @@
             document.getElementById('resultado').innerHTML = `A palavra "${string}" invertida é "${invertido}"`
         }
     </script>
+
+    <style>
+        h2{
+            text-align: center;
+        }
+
+        .campo{
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        margin: auto;
+        gap: 15px;
+        padding: 130px 0px 30px 0px;
+        }
+
+        .campo label{
+            font-size: 20px;
+        }
+    
+        .campo input{
+        padding: 10px;
+        }
+
+        button{
+            display: flex;
+            margin: auto;
+            padding: 15px;
+            font-size: 1rem;
+        }
+    
+        #resultado{
+        text-align: center;
+        font-size: 1.5rem;
+        }
+    </style>
+
 </body>
 </html>

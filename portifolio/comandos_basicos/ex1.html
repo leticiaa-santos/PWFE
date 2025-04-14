@@ -5,26 +5,66 @@
   <title>Exercício 01</title>
 </head>
 <body>
+
+
   <h2>Exercício 01 - Diferença entre dois números</h2>
 
-  <label for="numero1">Informe o primeiro número:</label>
-  <input type="number" id="numero1"><br><br>
-
-  <label for="numero2">Informe o segundo número:</label>
-  <input type="number" id="numero2"><br><br>
-
-  <button onclick="calcularDiferenca()">Calcular Diferença</button>
-
-  <p id="resultado"></p>
+  <section class="atividade">
+    <label for="numero1">Informe o primeiro número:</label>
+    <input type="number" id="numero1">
+    <label for="numero2">Informe o segundo número:</label>
+    <input type="number" id="numero2">
+  </section>
+  
+    <button onclick="calcularDiferenca()">Calcular Diferença</button>
+    <p id="resultado"></p>
+  
 
   <script>
     function calcularDiferenca() {
       let numero1 = Number(document.getElementById('numero1').value);
       let numero2 = Number(document.getElementById('numero2').value);
       let diferenca = numero1 - numero2;
-
+      
       document.getElementById('resultado').innerHTML = `${numero1} - ${numero2} = ${diferenca}`;
     }
-  </script>
+    </script>
+
+    <style>
+  
+      h2{
+        text-align: center;
+      }
+  
+      .atividade{
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+        width: 20%;
+        padding: 130px 0px 30px 0px;
+        gap: 15px;
+      }
+  
+      .atividade label{
+        font-size: 20px;
+      }
+  
+      .atividade input{
+        padding: 10px;
+      }
+  
+      button{
+        display: flex;
+        margin: auto;
+        padding: 15px;
+        font-size: 1rem;
+      }
+  
+      #resultado{
+        text-align: center;
+        font-size: 1.5rem;
+      }
+  
+    </style>
 </body>
 </html>

@@ -6,14 +6,17 @@
     <title>Exercício 01</title>
 </head>
 <body>
-    <label for="numero1">Informe o primeiro número:</label>
-    <input type="number" id="numero1"><br><br>
 
-    <label for="numero2">Informe o segundo número:</label>
-    <input type="number" id="numero2"><br><br>
+    <h2>Exercício 01 - Calculadora</h2>
 
-    <label for="calculo">Escolha uma operação: <p>[+] - Soma</p><p>[-] - Subtração</p><p>[*] - Multiplicação</p><p>[/] - Divisão</p></label>
-    <input type="text" id="calculo"><br><br>
+    <section class="atividade">
+        <label for="numero1">Informe o primeiro número:</label>
+        <input type="number" id="numero1">
+        <label for="numero2">Informe o segundo número:</label>
+        <input type="number" id="numero2">
+        <label for="calculo">Escolha uma operação: <p>[+] - Soma</p><p>[-] - Subtração</p><p>[*] - Multiplicação</p><p>[/] - Divisão</p></label>
+        <input type="text" id="calculo">
+    </section>
 
     <button onclick="calculadora()">Calcular</button>
 
@@ -46,5 +49,41 @@
             }
         }
     </script>
+
+    <style>
+        h2{
+            text-align: center;
+        }
+  
+        .atividade{
+            display: flex;
+            margin: auto;
+            flex-direction: column;
+            width: 20%;
+            padding: 130px 0px 30px 0px;
+            gap: 15px;
+        }
+  
+        .atividade label{
+            font-size: 20px;
+        }
+  
+        .atividade input{
+            padding: 10px;
+        }
+  
+        button{
+            display: flex;
+            margin: auto;
+            padding: 15px;
+            font-size: 1rem;
+        }
+  
+        #resultado{
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    </style>
+
 </body>
 </html>

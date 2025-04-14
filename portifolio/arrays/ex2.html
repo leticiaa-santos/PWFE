@@ -6,7 +6,9 @@
 </head>
 <body>
   <h2>Exercício 02 - Média de valores</h2>
+
   <button onclick="executar()">Executar</button>
+  
   <div id="resultado"></div>
 
   <script>
@@ -15,7 +17,7 @@
       let soma = 0;
       let resultado = document.getElementById("resultado");
 
-      resultado.innerHTML = `Valores: ${numeros.join(", ")} <br>`;
+      resultado.innerHTML = `Valores: ${numeros.join(", ")} <br><br>`;
 
       for(let numero of numeros){
           soma += numero;
@@ -23,8 +25,29 @@
 
       let media = soma / 8;
 
-      resultado.innerHTML += `Média: ${media}`;
+      resultado.innerHTML += `Média: ${media.toFixed(2)}`;
     }
   </script>
+
+  <style>
+    h2{
+      text-align: center;
+    }
+
+    button{
+      display: flex;
+      margin: auto;
+      padding: 15px;
+      font-size: 1rem;
+    }
+
+    #resultado{
+      text-align: center;
+      font-size: 1.5rem;
+      padding: 15px;
+    }
+
+  </style>
+
 </body>
 </html>

@@ -6,8 +6,13 @@
     <title>exercicio 06</title>
 </head>
 <body>
-    <label for="hora">Informe a hora:</label>
-    <input type="number" id="hora"><br><br>
+
+    <h2>Exercicio 06 - Converter hora pra minutos</h2>
+
+    <section class="campo">
+        <label for="hora">Informe a hora:</label>
+        <input type="number" id="hora">
+    </section>
 
     <button onclick="converter()">Ver minutos</button>
 
@@ -22,5 +27,41 @@
             document.getElementById('resultado').innerHTML = `${hora} horas = ${minutos} minutos`
         }
     </script>
+
+    <style>
+        h2{
+            text-align: center;
+        }
+
+        .campo{
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        margin: auto;
+        gap: 15px;
+        padding: 130px 0px 30px 0px;
+        }
+
+        .campo label{
+            font-size: 20px;
+        }
+    
+        .campo input{
+        padding: 10px;
+        }
+
+        button{
+            display: flex;
+            margin: auto;
+            padding: 15px;
+            font-size: 1rem;
+        }
+    
+        #resultado{
+        text-align: center;
+        font-size: 1.5rem;
+        }
+    </style>
+
 </body>
 </html>

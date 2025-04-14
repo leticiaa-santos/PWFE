@@ -6,6 +6,9 @@
     <title>Exercicio 09</title>
 </head>
 <body>
+
+    <h2>Exercício 09 - Fazer cadastro</h2>
+
     <form onsubmit="return validar(event)">
         <label for="nome">Nome: </label>
         <input type="text" id="nome"><br><br>
@@ -13,12 +16,13 @@
         <label for="endereco">Endereço: </label>
         <input type="text" id="endereco"><br>
 
-        <p>Sexo: </p>
-        <input type="radio" name="sexo" id="F" value="Feminino">
-        <label for="F">Feminino</label><br>
-
-        <input type="radio" name="sexo" id="M" value="Masculino">
-        <label for="M">Masculino</label><br><br>
+        <section class="campo">
+            <p>Sexo: </p>
+            <input type="radio" name="sexo" id="F" value="Feminino">
+            <label for="F">Feminino</label><br>
+            <input type="radio" name="sexo" id="M" value="Masculino">
+            <label for="M">Masculino</label><br><br>
+        </section>
 
         <label for="telefone">Telefone: </label>
         <input type="tel" id="telefone"><br><br>
@@ -60,5 +64,44 @@
             }
         }
     </script>
+
+<style>
+    h2{
+        text-align: center;
+    }
+
+    form{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: auto;
+    padding: 130px 0px 30px 0px;
+    }
+
+    label{
+        font-size: 20px;
+    }
+
+    input{
+        padding: 10px;
+    }
+
+    .campo p{
+        font-size: 20px;
+    }
+
+    button{
+        display: flex;
+        margin: auto;
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    #resultado{
+    text-align: center;
+    font-size: 1.5rem;
+    }
+</style>
+
 </body>
 </html>

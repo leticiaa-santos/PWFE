@@ -6,7 +6,11 @@
     <title>Exercício 07</title>
 </head>
 <body>
+
+    <h2>Exercício 07 - Quantidade de cédulas</h2>
+
     <form onsubmit="return calcular(event)">
+
         <label for="valor">Digite um valor (R$): </label>
         <input type="number" id="valor" step="0.01"><br><br>
 
@@ -46,6 +50,41 @@
             }
         }
     </script>
+
+    <style>
+        h2{
+            text-align: center;
+        }
+
+        form{
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        margin: auto;
+        gap: 15px;
+        padding: 130px 0px 30px 0px;
+        }
+
+        label{
+            font-size: 20px;
+        }
+    
+        input{
+        padding: 10px;
+        }
+
+        button{
+            display: flex;
+            margin: auto;
+            padding: 15px;
+            font-size: 1rem;
+        }
+    
+        #resultado{
+        text-align: center;
+        font-size: 1.5rem;
+        }
+    </style>
 
 </body>
 </html>

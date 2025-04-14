@@ -5,10 +5,15 @@
   <title>Exercício 08</title>
 </head>
 <body>
+
   <h2>Exercício 08 - Vetores A e B (metade dos valores)</h2>
+
   <p>Informe os números para ver a metade de cada um</p>
-  <div id="inputs"></div>
-  <button onclick="executar()">Executar</button>
+
+  <section class="atividade">
+    <div id="inputs"></div>
+    <button onclick="executar()">Executar</button>
+  </section>
 
   <div id="resultado"></div>
 
@@ -36,5 +41,42 @@
       `;
     }
   </script>
+
+  <style>
+    h2{
+    text-align: center;
+    }
+
+    p{
+      text-align: center;
+    }
+
+    .atividade{
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+  
+    input{
+      display: flex;
+      margin: auto;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    button{
+      display: flex;
+      margin: auto;
+      padding: 15px;
+      font-size: 1rem;
+    }
+
+    #resultado{
+      text-align: center;
+      font-size: 1.5rem;
+      padding: 10px;
+    }
+  </style>
+
 </body>
 </html>

@@ -6,8 +6,12 @@
 </head>
 <body>
   <h2>Exercício 06 - Verificar se o nome está na lista</h2>
-  <input type="text" id="nomeInput" placeholder="Digite o nome aqui">
-  <button onclick="verificarNome()">Verificar</button>
+
+  <section class="atividade">
+    <input type="text" id="nomeInput" placeholder="Digite o nome aqui">
+    <button onclick="verificarNome()">Verificar</button>
+  </section>
+
   <div id="resultado"></div>
 
   <script>
@@ -30,5 +34,37 @@
       }
     }
   </script>
+
+  <style>
+    h2{
+      text-align: center;
+    }
+
+    .atividade{
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+  
+    input{
+      display: flex;
+      margin: auto;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    button{
+        display: flex;
+        margin: auto;
+        padding: 15px;
+        font-size: 1rem;
+    }
+  
+    #resultado{
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  </style>
+
 </body>
 </html>

@@ -7,11 +7,12 @@
 <body>
   <h2>Exercício 09 - Calcular Taxa de Câmbio</h2>
 
-  <label for="taxa">Informe a taxa de câmbio:</label>
-  <input type="number" id="taxa" step="0.01"><br><br>
-
-  <label for="valor">Informe o valor a ser convertido:</label>
-  <input type="number" id="valor" step="0.01"><br><br>
+  <section class="atividade">
+    <label for="taxa">Informe a taxa de câmbio (%):</label>
+    <input type="number" id="taxa" step="0.01">
+    <label for="valor">Informe o valor a ser convertido (R$):</label>
+    <input type="number" id="valor" step="0.01">
+  </section>
 
   <button onclick="converter()">Converter</button>
 
@@ -27,5 +28,41 @@
         `O valor ${valor} convertido com a taxa ${taxa} é ${convertido.toFixed(2)}`;
     }
   </script>
+
+  <style>
+    h2{
+        text-align: center;
+      }
+  
+      .atividade{
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+        width: 20%;
+        padding: 130px 0px 30px 0px;
+        gap: 15px;
+      }
+  
+      .atividade label{
+        font-size: 20px;
+      }
+  
+      .atividade input{
+        padding: 10px;
+      }
+  
+      button{
+        display: flex;
+        margin: auto;
+        padding: 15px;
+        font-size: 1rem;
+      }
+  
+      #resultado{
+        text-align: center;
+        font-size: 1.5rem;
+      }
+  </style>
+
 </body>
 </html>
