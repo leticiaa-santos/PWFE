@@ -7,19 +7,19 @@ export function BarraNavegacao(){
     return(
         <nav className={estilos.conteiner}>
             <ul>
-                <Link to='/'>
+                <Link className={estilos.link} to='/'>
                     <li>
                         <span class="material-symbols-outlined">home</span>
                         Home
                     </li>
                 </Link>
-                <Link to='series'>
+                <Link className={estilos.link} to='series'>
                     <li>
                         <span class="material-symbols-outlined">movie</span>
                         Séries
                     </li>
                 </Link>
-                <Link to='perfil'>
+                <Link className={estilos.link} to='perfil'>
                     <li>
                         <span class="material-symbols-outlined">person</span>
                         Perfil

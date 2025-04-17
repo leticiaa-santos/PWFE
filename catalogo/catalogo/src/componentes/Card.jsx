@@ -1,4 +1,4 @@
-import estilo from './Card.module.css'
+import estilo from './Card.module.css';
 
 export function Card({ movie, onOpenModal}){
     return(

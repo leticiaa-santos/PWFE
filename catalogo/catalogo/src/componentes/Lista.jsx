@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {useState, useEffect} from "react";
 import { Card } from './Card'; 
 import { Modal } from './Modal'
+import estilos from './Lista.module.css'
 
 const API_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'af26cce282aecf5c6cc39a264f29d0a7';
@@ -36,7 +37,7 @@ export function Lista(){
     }
 
     return(
-        <div>
+        <div className={estilos.conteiner}>
             <figure>
                 {movies.map(movie => (
                     <Card key={movie.id}

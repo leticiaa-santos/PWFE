@@ -1,4 +1,4 @@
-import estilos from './Modal.module.css'
+import estilos from './Modal.module.css';
 
 export function Modal({ movie, onClose }){
     if(!movie){
