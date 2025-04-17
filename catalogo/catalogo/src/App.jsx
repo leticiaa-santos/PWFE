@@ -1,8 +1,6 @@
-import estilos from './App.module.css';
-import { BarraNavegacao } from './componentes/barraNavegacao/BarraNavegacao';
-import { Cabecalho } from './componentes/cabecalho/Cabecalho';
-import { Conteudo } from './componentes/conteudo/Conteudo';
-import { Rodape } from './componentes/rodape/Rodape';
+import React from "react"
+import { BrowserRouter } from "react-router-dom"
+import { Rotas } from "./Rotas/Rotas"
 
 //estrutura básica para usar o react é através das funções
 function App() {
@@ -12,15 +10,11 @@ function App() {
     //para chamar o css dei um aplido de estilos e chamei usando o className
     //Tags fantasmas servem para que eu consiga usar duas tags no mesmo componente
     
-    <>
-      <Cabecalho/>
-      <BarraNavegacao/>
-      <Conteudo/>
-      <Rodape/>
-    </>
-    
+    <BrowserRouter>
+      <Rotas />
+    </BrowserRouter>
 
-  )
+  );
 }
 
 export default App

@@ -10,7 +10,9 @@ export function Modal({ movie, onClose }){
         <div className={estilos.modalback}>
             <div className={estilos.modalContainer}>
                 <div className={estilos.modalHeader}>
-                    <button onClick={onClose}>x</button>
+                    <div className={estilos.containerButton}>
+                        <button onClick={onClose}>x</button>
+                    </div>
                     <h2>{movie.title}</h2>
                     <img className={estilos.imgModal} src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
                     <div >

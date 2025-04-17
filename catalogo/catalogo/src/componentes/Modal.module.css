@@ -72,3 +72,8 @@ button{
     text-align: center;
     justify-content: center;
 }
+
+.containerButton{
+    display: flex;
+    justify-content: flex-end;
+}
