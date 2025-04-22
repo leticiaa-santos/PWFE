@@ -5,7 +5,7 @@ export function Perfil(){
     return(
 
         <main className={estilo.conteiner}>
-            <h2>Meu Perfil </h2>
+            <h2>Perfil</h2>
         </main>
     );
 }
