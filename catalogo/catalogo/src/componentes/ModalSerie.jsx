@@ -20,6 +20,7 @@ export function ModalSerie({ serie, onClose }){
                             <li>{`Popularidade: ${serie.popularity}`}</li>
                             <li>{`Data de Lançamento: ${serie.first_air_date}`}</li>
                             <li>{`Quantidade de votos: ${serie.vote_count}`}</li>
+                            <li>{`Sinopse: ${serie.overview}`}</li>
                         </ul>
                     </div>
                 </div>

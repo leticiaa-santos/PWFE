@@ -1,6 +1,5 @@
 .conteiner{
     position: relative;
-    width: 250px;
     height: 600px;
     margin: 30px;
     overflow: hidden;
@@ -8,4 +7,29 @@
     transition: transform 0.3s ease;
     color: #141414;
     text-align: center;
+}
+
+.titulo{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.sobre{
+    display: flex;
+    width: 40%;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    align-items: center;
+    margin: auto;
+}
+
+.dados{
+    padding: 5px 0px 15px 15px;
+}
+
+.perfil{
+    width: 150px;
+    height: 150px;
 }
