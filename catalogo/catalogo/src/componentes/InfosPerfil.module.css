@@ -11,37 +11,43 @@
     text-align: center;
     justify-content: center;
     padding-bottom: 50px;
+    font-size: 36px;
 }
 
 .dados{
     display: flex;
-    width: 40%;
-    background-color: #F5F5F5;
+    width: 50%;
+    background-color: #dc919d;
     border-radius: 10px;
     margin: auto;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 5px 0px 5px 35px;
+    padding: 35px 0px 35px 0px;
     gap: 250px;
     align-items: center;
+    justify-content: center;
 }
 
 .fotoPerfil{
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
 }
 
 .infosPessoais h4{
-    font-size: 18px;
+    color: #ffffff;
+    font-size: 22px;
     padding-bottom: 10px;
 }
 
 .infosPessoais p{
-    font-size: 14px;
+    font-size: 16px;
+    color: #ffffff;
+}
+.identificacao h2{
+    color: #ffffff;
 }
 
 .favoritos{
     padding: 50px;
-    width: 60%;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -53,13 +59,13 @@
 }
 
 .filmes h3{
-    font-size: 20px;
-    padding: 15px;
+    font-size: 26px;
+    padding: 25px;
 }
 
 .series h3{
-    font-size: 20px;
-    padding: 15px;
+    font-size: 26px;
+    padding: 25px;
 }
 
 .selecao{
@@ -68,8 +74,8 @@
 }
 
 .serie{
-    width: 275px;
-    height: 275px;
+    width: 345px;
+    height: 345px;
 }
 
 .serie img{
@@ -82,8 +88,8 @@
 }
 
 .filme{
-    width: 275px;
-    height: 275px;
+    width: 345px;
+    height: 345px;
 }
 
 .filme img{

@@ -1,7 +1,7 @@
 .conteiner{
     position: relative;
-    width: 250px;
-    height: 400px;
+    width: 350px;
+    height: 550px;
     margin: 30px;
     overflow: hidden;
     border-radius: 5px;
@@ -12,27 +12,40 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(147deg,rgba(230, 157, 169, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+.conteiner:hover{
+    transform: scale(1.1);
+
 }
 
 .titulo{
     color: #141414;
-    font-size: 14px;
+    font-size: 19px;
     line-height: 1.5rem;
+    padding-bottom: 5px;
+    border-radius: 10px;
 }
 
 .image{
-    width: 100%;
-    height: 350px;
+    height: 500px;
 }
 
 figure{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: center;
+    align-items: center;
 }
 
 p{
     padding: 5px;
     font-size: 12px;
     line-height: 1.5rem;
+}
+
+.containerTitulo{
+    height: 40px;
+    display: flex;
+    align-items: center;
 }

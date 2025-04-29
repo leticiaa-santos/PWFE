@@ -33,17 +33,21 @@ export function ListaSerie(){
     }
 
     return(
-        <div className={estilos.conteiner}>
-            <figure>
-                {series.map(serie => (
-                    <CardSerie key={serie.id}
-                    serie={serie}
-                    onOpenModal = {handleOpenModal}
-                    />
-                ))}
-            </figure>
-            {selectedSerie &&(<ModalSerie serie={selectedSerie} onClose = {handleCloseModal}/>)}
-        </div>
+        <>
+            <h2 className={estilos.tituloDestaque}>Séries Destaques</h2>
+            <div className={estilos.conteiner}>
+                <figure>
+                    {series.map(serie => (
+                        <CardSerie key={serie.id}
+                        serie={serie}
+                        onOpenModal = {handleOpenModal}
+                        />
+                    ))}
+                </figure>
+                {selectedSerie &&(<ModalSerie serie={selectedSerie} onClose = {handleCloseModal}/>)}
+            </div>
+        </>
+        
     )
     
 }

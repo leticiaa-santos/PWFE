@@ -4,7 +4,7 @@
     align-items: center;
     height: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    background-color: #E69DA9;
 }
 
 ul{
@@ -21,6 +21,7 @@ li{
     color: #000000;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     gap: 10px;
+    color: #000000;
 }
 
 .link{

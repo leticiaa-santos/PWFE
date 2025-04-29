@@ -32,13 +32,9 @@ export function InfosPerfil (){
 
                 <section className={estilo.favoritos}>
 
-                    <h2>Seus queridinhos</h2>
-
-                    
-
                     <section className={estilo.filmes}>
 
-                        <h3>Filmes</h3>
+                        <h3>Meus filmes favoritos</h3>
 
                         <section className={estilo.selecao}>
 
@@ -58,7 +54,7 @@ export function InfosPerfil (){
 
                     <section className={estilo.series}>
 
-                            <h3>Séries</h3>
+                        <h3>Minhas séries favoritas</h3>
 
                         <section className={estilo.selecao}>
 

@@ -37,16 +37,20 @@ export function Lista(){
     }
 
     return(
-        <div className={estilos.conteiner}>
-            <figure>
-                {movies.map(movie => (
-                    <Card key={movie.id}
-                    movie={movie}
-                    onOpenModal = {handleOpenModal} 
-                    />
-                ))}
-            </figure>
-            {SelectedMovie &&(<Modal movie={SelectedMovie} onClose={handleCloseModal}/>)}
-        </div>
+        <>
+            <h2 className={estilos.tituloDestaque}>Filmes Destaques</h2>
+            <div className={estilos.conteiner}>
+                <figure>
+                    {movies.map(movie => (
+                        <Card key={movie.id}
+                        movie={movie}
+                        onOpenModal = {handleOpenModal} 
+                        />
+                    ))}
+                </figure>
+                {SelectedMovie &&(<Modal movie={SelectedMovie} onClose={handleCloseModal}/>)}
+            </div>
+        </>
+        
     )
 }
