@@ -10,6 +10,7 @@ import fuja from '../assets/fuja.svg'
 export function InfosPerfil (){
 
     return(
+
         <main className={estilo.conteiner}>
             <h2 className={estilo.titulo}>Meu Perfil</h2>
             <section className={estilo.infosPerfil}>
@@ -17,7 +18,7 @@ export function InfosPerfil (){
                 <section className={estilo.dados}>
 
                     <div className={estilo.identificacao}>
-                        <img className={estilo.fotoPerfil} src={ perfil } alt="" />
+                        <img className={estilo.fotoPerfil} src={ perfil } alt="imagem de perfil referente a quem ele pertence" />
                         <h2>Letícia Oliveira</h2>
                     </div>
 
