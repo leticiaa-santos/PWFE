@@ -1,12 +1,13 @@
 .container{
     background-color: #EEEEEE;
     height: 125px;
+    width: 100%;
     display: flex;
 }
 
 .logo{
     width: 262.63px;
-    height: 99.44px;
+    height: 90px;
 }
 
 nav{
