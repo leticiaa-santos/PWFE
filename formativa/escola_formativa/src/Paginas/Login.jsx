@@ -1,81 +1,82 @@
 import axios from 'axios';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
+import { useNavigate } from 'react-router-dom';
+import estilos from './Login.module.css';
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
-import estilo from './Login.module.css';
-
+ 
 const schemaLogin = z.object({
     username: z.string()
-        .min(1, 'Informe o seu usuário')
-        .max(30, 'Informe no máximo 30 caracteres'),
-    
+        .min(1, 'Informe um nome')
+        .max(25, 'Informe no máximo 25 caracteres'),
     password: z.string()
-        .min(1, 'Informe ao menos um caractere')
+        .min(1, 'Informe uma senha')
         .max(15, 'Informe no máximo 15 caracteres')
 });
-
-export function Login(){
-    //registra todas as informações que são dadas pelo usuário e tenta resolver de acordo com o esquema
-    const{
+ 
+export function Login() {
+    const navigate = useNavigate();
+ 
+    const {
         register,
         handleSubmit,
-        formState: {errors}
-    }=useForm(
-        {resolver: zodResolver(schemaLogin)}
-    );
-    async function ObterDados(data) {
-        console.log(`Dados ${data}`)
-
-        try{
-            const response = await axios.post('http://127.0.0.1:8000/api/login', {
+        formState: { errors }
+    } = useForm({
+        resolver: zodResolver(schemaLogin)
+    });
+ 
+    async function obterDadosFormulario(data) {
+        console.log(`Dados: ${data}`)
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/login/', {
                 username: data.username,
                 password: data.password
-
             });
+ 
             const { access, refresh, user } = response.data;
-
-            localStorage.setItem('access_token', access)
-            localStorage.setItem('refresh_token', refresh)
-            localStorage.setItem('tipo', user.tipo)
-            localStorage.setItem('username', username)
-
-            console.log("Login efetuado com sucesso")
-        }catch(error){
-            console.error('Deu ruim', error)
-            alert("Dados inválidos")
+ 
+            localStorage.setItem('access_token', access);
+            localStorage.setItem('refresh_token', refresh);
+            localStorage.setItem('tipo', user.tipo);
+            localStorage.setItem('user_id', user.id);
+            localStorage.setItem('username', user.username);
+ 
+            console.log('Login bem-sucedido!');          
+            navigate('/inicial');
+         
+ 
+        } catch (error) {
+            console.error('Erro de autenticação', error);
+            alert("Dados Inválidos, por favor verifique suas credenciais");
         }
     }
-
-    return(
-        <div className={estilo.container}>
-
-            <form onSubmit={handleSubmit(ObterDados)} className={estilo.loginForm}>
-
-                <h2 className={estilo.titulo}>Login</h2>
-
-                <label className={estilo.label}>Usuário:</label>
-
+ 
+    return (
+        <div className={estilos.container}>
+            <form onSubmit={handleSubmit(obterDadosFormulario)} className={estilos.loginForm}>
+                <h2 className={estilos.titulo}>Login</h2>
+ 
+                <label className={estilos.label}>Usuário:</label>
                 <input
                     {...register('username')}
-                    placeholder='josesilva'
-                    className={estilo.inputField}
+                    placeholder='username'
+                    className={estilos.inputField}
                 />
-                {errors.username && <p>{errors.username.message}</p>}
-
-
-                <label className={estilo.label}>Senha:</label>
-
+                {errors.username && <p className={estilos.error}>{errors.username.message}</p>}
+ 
+                <label>Senha: </label>
                 <input
                     {...register('password')}
-                    placeholder='senha'
+                    placeholder='Senha'
                     type="password"
-                    className={estilo.inputField}
+                    className={estilos.inputField}
                 />
-                {errors.password && <p className={estilo.error}>{errors.password.message}</p>}
-
-                <button type="submit" className={estilo.submitButton}>Entrar</button>
-
+                {errors.password && <p className={estilos.error}>{errors.password.message}</p>}
+ 
+                <button type="submit" className={estilos.submitButton}>Entrar</button>
             </form>
         </div>
-    )
+    );
 }
+ 
+ 

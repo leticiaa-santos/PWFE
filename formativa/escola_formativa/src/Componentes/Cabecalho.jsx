@@ -3,9 +3,10 @@ import logo from '../assets/logo.svg'
 
 export function Cabecalho(){
     return(
-        <header className={estilo.container}>
-            <img className={estilo.logo} src={ logo }/>
+        <header>
+            
             <nav className={estilo.container}>
+                <img className={estilo.logo} src={ logo }/>
                 <ul>
                     <li>História</li>
                     <li>Sobre Nós</li>
