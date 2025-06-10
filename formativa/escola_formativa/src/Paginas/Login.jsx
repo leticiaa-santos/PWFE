@@ -64,7 +64,7 @@ export function Login() {
                 />
                 {errors.username && <p className={estilos.error}>{errors.username.message}</p>}
  
-                <label>Senha: </label>
+                <label className={estilos.label}>Senha: </label>
                 <input
                     {...register('password')}
                     placeholder='Senha'

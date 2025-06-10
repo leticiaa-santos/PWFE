@@ -28,7 +28,7 @@
 }
 
 .label{
-    padding: 15px;
+    padding: 10px 0 5px 0;
     font-size: 14px;
     color: #EEEEEE;
     margin: 5px;
@@ -37,7 +37,7 @@
 .inputField{
     padding: 10px;
     font-size: 16px;
-    color: #EEEEEE;
+    color: #000000;
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -46,7 +46,7 @@
 }
 
 .inputField::placeholder{
-    color: #001931;
+    color: #b0b8c0;
 }
 
 .submitButton{
