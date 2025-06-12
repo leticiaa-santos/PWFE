@@ -2,27 +2,10 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import React, {useEffect, useState} from 'react';
-import estilos from './Cadastrar.module.css'
-
-// const schemaAmbientes = z.object({
-//     data_inicio: z.date(),
-//     data_termino: z.date(),
-//     periodo: z.string()
-//         .min(1, 'Informe o periodo')
-//         .max(8, 'Informe no máximo 100 caracteres'),
-//     sala_reservada: z.number(
-//         {invalid_type_error: 'Selecione uma sala'})
-//         .min(1, 'selecione uma sala'),
-//     professor: z.number(
-//         {invalid_type_error: 'Selecione um professor'})
-//         .min(1, 'selecione um professor'),
-//     disciplina: z.number(
-//         {invalid_type_error: 'Selecione uma disciplina'})
-//         .min(1, 'selecione uma disciplina')
-
-// });
-
+import estilos from './Cadastrar.module.css';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+ 
 const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
 const schemaAmbientes = z.object({
@@ -59,102 +42,126 @@ const schemaAmbientes = z.object({
     message: 'A data de término deve ser posterior à de início'
 });
 
-export function AmbienteCadastrar(){
-    
+ 
+export function AmbienteEditar() {
+ 
     const [professores, setProfessores] = useState([]);
     const [salas, setSalas] = useState([]);
     const [disciplinas, setDisciplinas] = useState([]);
-
-    const{
+    const { id } = useParams();
+    const navigate = useNavigate();
+ 
+    const {
         register,
         handleSubmit,
-        formState: {errors},
+        formState: { errors },
         reset
     } = useForm({
         resolver: zodResolver(schemaAmbientes)
     });
-
+ 
     useEffect(() => {
-
         async function buscarProfessores() {
-            try{
+            try {
                 const token = localStorage.getItem('access_token');
-                const response = await axios.get('http://127.0.0.1:8000/api/usuario/',{
-                    headers:{
+                const response = await axios.get('http://127.0.0.1:8000/api/usuario/', {
+                    headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
-                    setProfessores(response.data);
-            }catch(error){
-                console.error("Erro ", error);
+                setProfessores(response.data);
+                //Preenche o formulários com os dados do registro do ID
+                 const resDisciplina = await axios.get(`http://127.0.0.1:8000/api/reservas/${id}/`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+ 
+                // Preenche o formulário
+                reset(resDisciplina.data);
+ 
+            } catch (error) {
+                console.error("Erro ao carregar professores", error);
             }
-            
         }
 
         async function buscarSalas() {
-            try{
+            try {
                 const token = localStorage.getItem('access_token');
-                const response = await axios.get('http://127.0.0.1:8000/api/sala/',{
-                    headers:{
+                const response = await axios.get('http://127.0.0.1:8000/api/sala/', {
+                    headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
-                    setSalas(response.data);
-            }catch(error){
-                console.error("Erro ", error);
+                setSalas(response.data);
+                //Preenche o formulários com os dados do registro do ID
+                 const resAmbiente = await axios.get(`http://127.0.0.1:8000/api/reservas/${id}/`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+ 
+                // Preenche o formulário
+                reset(resAmbiente.data);
+ 
+            } catch (error) {
+                console.error("Erro ao carregar salas", error);
             }
-            
         }
 
         async function buscarDisciplinas() {
-            try{
+            try {
                 const token = localStorage.getItem('access_token');
-                const response = await axios.get('http://127.0.0.1:8000/api/disciplinas/',{
-                    headers:{
+                const response = await axios.get('http://127.0.0.1:8000/api/disciplinas/', {
+                    headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
-                    setDisciplinas(response.data);
-            }catch(error){
-                console.error("Erro ", error);
+                setDisciplinas(response.data);
+                //Preenche o formulários com os dados do registro do ID
+                 const resAmbiente = await axios.get(`http://127.0.0.1:8000/api/reservas/${id}/`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+ 
+                // Preenche o formulário
+                reset(resAmbiente.data);
+ 
+            } catch (error) {
+                console.error("Erro ao carregar disciplinas", error);
             }
-            
         }
 
         buscarDisciplinas();
         buscarSalas();
         buscarProfessores();
-
     }, []);
-
+ 
     async function obterDadosFormulario(data) {
-        console.log("dados do formulário ", data);
-
-        try{
+      console.log("Dados do formulário:", data);
+        try {
             const token = localStorage.getItem('access_token');
-            const response = await axios.post(
-                'http://127.0.0.1:8000/api/reservas/',
+ 
+            const response = await axios.put(
+                `http://127.0.0.1:8000/api/disciplinas/${id}/`,
                 data,
                 {
-                    headers:{
+                    headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
                     }
                 }
             );
-            console.log('Reserva cadastrada com sucesso!', response.data);
-            alert('Reserva cadastrada com sucesso!');
+ 
+            console.log('Reserva editada com sucesso!', response.data);
+            alert('Reserva editada com sucesso!');
             reset();
-       
+            navigate('/inicial/disciplina');
+ 
         } catch (error) {
-              console.error('Erro ao cadastrar reserva', error);
-              alert("Erro ao cadastrar reserva");
+            console.error('Erro ao editar reserva', error);
+            alert("Erro ao editar reserva");
         }
     }
-       
+ 
     return (
-        <div className={estilos.container}>
-            
+        <div className={estilos.conteiner}>
+           
             <form className={estilos.loginForm} onSubmit={handleSubmit(obterDadosFormulario)}>
                 <h2 className={estilos.titulo}>Cadastro de Reserva</h2>
                 <label className ={estilos.nomeCampo} >Data início</label>
@@ -222,11 +229,11 @@ export function AmbienteCadastrar(){
                     ))}
                 </select>
                 {errors.disciplina && <p className={estilos.error}>{errors.disciplina.message}</p>}
-                
-
+               
+ 
                 <div className={estilos.icones}>
                     <button className={estilos.submitButton} type="submit">
-                        Cadastrar
+                        Atualizar
                     </button>
                 </div>
             </form>
