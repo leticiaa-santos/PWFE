@@ -41,14 +41,14 @@ class Sala(models.Model):
 # models para a criação de reserva de ambientes
 class ReservaAmbiente(models.Model):
     PERIODO_CHOICES = [
-        ('M', 'manhã'),
-        ('T', 'tarde'),
-        ('N', 'noite'),
+        ('Manhã', 'manhã'),
+        ('Tarde', 'tarde'),
+        ('Noite', 'noite'),
     ]
 
     data_inicio = models.DateField()
     data_termino = models.DateField()
-    periodo = models.CharField(max_length=1, choices=PERIODO_CHOICES, default='M')
+    periodo = models.CharField(max_length=8, choices=PERIODO_CHOICES, default='Manhã')
     sala_reservada = models.ForeignKey(Sala, on_delete=models.CASCADE)
     professor = models.ForeignKey(Usuario, on_delete=models.CASCADE, limit_choices_to={'tipo': 'P'})
     disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE)

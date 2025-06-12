@@ -10,10 +10,11 @@ export function Menu(){
 
     const tipo = localStorage.getItem('tipo');
     const linkDisciplina = tipo === 'P' ? 'discprofessor' : 'disciplina'
+    const linkAmbiente = tipo === 'P' ? 'ambiprofessor' : 'ambiente'
 
     return(
         <div className={estilo.container}>
-            <table>
+            <table className={estilo.menu}>
                 <tbody>
                     <tr>
                         <td>
@@ -23,8 +24,10 @@ export function Menu(){
                             </Link>
                         </td>
                         <td>
-                            <img src={ ambiente }/>
-                            <label alt='Ambientes reservados do professor'>Ambiente</label>
+                            <Link to = {linkAmbiente}>
+                                <img src={ ambiente }/>
+                                <label alt='Ambientes reservados do professor'>Ambiente</label>
+                            </Link>
                         </td>
                     </tr>
                     <tr>

@@ -5,30 +5,29 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import estilos from './Cadastrar.module.css'
 
-const schemaDisciplinas = z.object({
-    nome: z.string()
-        .min(1, 'Informe um nome')
-        .max(100, 'Informe no máximo 100 caracteres'),
-    curso: z.string()
-        .min(1, 'Informe o curso')
-        .max(100, 'Informe no máximo 100 caracteres'),
-    carga_horaria: z.number(
-        {invalid_type_error: 'Informe uma carga horária'})
-        .int("Digite um valor inteiro")
-        .min(1, 'Informe um valor')
-        .max(260, 'A carga horária máxima é de 260h'),
-    descricao: z.string()
-        .min(1, 'Informe a descrição')
-        .max(255, 'Informe no máximo 255 caracteres'),
+const schemaAmbientes = z.object({
+    data_inicio: z.date(),
+    data_termino: z.date(),
+    periodo: z.string()
+        .min(1, 'Informe o periodo')
+        .max(8, 'Informe no máximo 100 caracteres'),
+    sala_reservada: z.number(
+        {invalid_type_error: 'Selecione uma sala'})
+        .min(1, 'selecione uma sala'),
     professor: z.number(
         {invalid_type_error: 'Selecione um professor'})
-        .min(1, 'selecione um professor')
+        .min(1, 'selecione um professor'),
+    disciplina: z.number(
+        {invalid_type_error: 'Selecione uma disciplina'})
+        .min(1, 'selecione uma disciplina')
 
 });
 
-export function DisciplinaCadastrar(){
+export function AmbienteCadastrar(){
     
     const [professores, setProfessores] = useState([]);
+    const [salas, setSalas] = useState([]);
+    const [disciplinas, setDisciplinas] = useState([]);
 
     const{
         register,
@@ -36,10 +35,11 @@ export function DisciplinaCadastrar(){
         formState: {errors},
         reset
     } = useForm({
-        resolver: zodResolver(schemaDisciplinas)
+        resolver: zodResolver(schemaAmbientes)
     });
 
     useEffect(() => {
+
         async function buscarProfessores() {
             try{
                 const token = localStorage.getItem('access_token');
@@ -54,7 +54,41 @@ export function DisciplinaCadastrar(){
             }
             
         }
+
+        async function buscarSalas() {
+            try{
+                const token = localStorage.getItem('access_token');
+                const response = await axios.get('http://127.0.0.1:8000/api/sala/',{
+                    headers:{
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                    setSalas(response.data);
+            }catch(error){
+                console.error("Erro ", error);
+            }
+            
+        }
+
+        async function buscarDisciplinas() {
+            try{
+                const token = localStorage.getItem('access_token');
+                const response = await axios.get('http://127.0.0.1:8000/api/disciplinas/',{
+                    headers:{
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                    setDisciplinas(response.data);
+            }catch(error){
+                console.error("Erro ", error);
+            }
+            
+        }
+
+        buscarDisciplinas();
+        buscarSalas();
         buscarProfessores();
+
     }, []);
 
     async function obterDadosFormulario(data) {
@@ -63,7 +97,7 @@ export function DisciplinaCadastrar(){
         try{
             const token = localStorage.getItem('access_token');
             const response = await axios.post(
-                'http://127.0.0.1:8000/api/disciplinas/',
+                'http://127.0.0.1:8000/api/reservas/',
                 data,
                 {
                     headers:{
@@ -72,13 +106,13 @@ export function DisciplinaCadastrar(){
                     }
                 }
             );
-            console.log('Disciplina cadastrado com sucesso!', response.data);
-            alert('Disciplina cadastrado com sucesso!');
+            console.log('Reserva cadastrada com sucesso!', response.data);
+            alert('Reserva cadastrada com sucesso!');
             reset();
        
         } catch (error) {
-              console.error('Erro ao cadastrar disciplina', error);
-              alert("Erro ao cadastrar disciplina");
+              console.error('Erro ao cadastrar reserva', error);
+              alert("Erro ao cadastrar reserva");
         }
     }
        
@@ -86,7 +120,7 @@ export function DisciplinaCadastrar(){
         <div className={estilos.container}>
             
             <form className={estilos.loginForm} onSubmit={handleSubmit(obterDadosFormulario)}>
-                    <h2 className={estilos.titulo}>Cadastro de Disciplina</h2>
+                    <h2 className={estilos.titulo}>Cadastro de Reserva</h2>
                     <label className ={estilos.nomeCampo} >Nome da Disciplina</label>
                     <input                        
                         className={estilos.inputField}
@@ -113,9 +147,9 @@ export function DisciplinaCadastrar(){
                         {...register('carga_horaria', { valueAsNumber: true })}
                         placeholder="75"
                     />
-                    {errors.carga_horaria &&
+                    {errors.cargaHoraria &&
                     <p className={estilos.error}>
-                        {errors.carga_horaria.message}
+                        {errors.cargaHoraria.message}
                     </p>}
                 
 
