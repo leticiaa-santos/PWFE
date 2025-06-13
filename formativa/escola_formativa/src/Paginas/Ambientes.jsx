@@ -96,7 +96,7 @@ export function Ambientes(){
         })
         .then(() => {
             alert('Ambiente excluído com sucesso!');
-            setDisciplinas(prev => prev.filter(dis => dis.id !== id));
+            setAmbientes(prev => prev.filter(ambiente => ambiente.id !== id));
             navigate('/inicial/ambiente');
         })
         .catch(error => {

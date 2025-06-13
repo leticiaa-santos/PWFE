@@ -71,12 +71,12 @@ export function AmbienteEditar() {
                 });
                 setProfessores(response.data);
                 //Preenche o formulários com os dados do registro do ID
-                 const resDisciplina = await axios.get(`http://127.0.0.1:8000/api/reservas/${id}/`, {
+                 const resAmbiente = await axios.get(`http://127.0.0.1:8000/api/reservas/${id}/`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
  
                 // Preenche o formulário
-                reset(resDisciplina.data);
+                reset(resAmbiente.data);
  
             } catch (error) {
                 console.error("Erro ao carregar professores", error);
@@ -138,7 +138,7 @@ export function AmbienteEditar() {
             const token = localStorage.getItem('access_token');
  
             const response = await axios.put(
-                `http://127.0.0.1:8000/api/disciplinas/${id}/`,
+                `http://127.0.0.1:8000/api/reservas/${id}/`,
                 data,
                 {
                     headers: {

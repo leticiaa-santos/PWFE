@@ -27,6 +27,7 @@ const schemaDisciplina = z.object({
 });
  
 export function DisciplinaEditar() {
+    
  
     const [professores, setProfessores] = useState([]);
     const { id } = useParams();
@@ -42,6 +43,11 @@ export function DisciplinaEditar() {
     });
  
     useEffect(() => {
+        
+        if (id) {
+                buscarProfessores();
+            }
+
         async function buscarProfessores() {
             try {
                 const token = localStorage.getItem('access_token');
@@ -57,6 +63,7 @@ export function DisciplinaEditar() {
                 });
  
                 // Preenche o formulário
+                console.log("Dados da disciplina: ", resDisciplina.data)
                 reset(resDisciplina.data);
  
             } catch (error) {
@@ -64,7 +71,7 @@ export function DisciplinaEditar() {
             }
         }
         buscarProfessores();
-    }, []);
+    }, [id]);
  
     async function obterDadosFormulario(data) {
       console.log("Dados do formulário:", data);
@@ -124,9 +131,9 @@ export function DisciplinaEditar() {
                         {...register('carga_horaria', { valueAsNumber: true })}
                         placeholder="75"
                     />
-                    {errors.cargaHoraria &&
+                    {errors.carga_horaria &&
                     <p className={estilos.error}>
-                        {errors.cargaHoraria.message}
+                        {errors.carga_horaria.message}
                     </p>}
                
  
