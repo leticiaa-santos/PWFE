@@ -151,7 +151,7 @@ export function AmbienteEditar() {
             console.log('Reserva editada com sucesso!', response.data);
             alert('Reserva editada com sucesso!');
             reset();
-            navigate('/inicial/disciplina');
+            navigate('/inicial/ambiente');
  
         } catch (error) {
             console.error('Erro ao editar reserva', error);
@@ -163,7 +163,7 @@ export function AmbienteEditar() {
         <div className={estilos.conteiner}>
            
             <form className={estilos.loginForm} onSubmit={handleSubmit(obterDadosFormulario)}>
-                <h2 className={estilos.titulo}>Cadastro de Reserva</h2>
+                <h2 className={estilos.titulo}>Atualização de Reserva</h2>
                 <label className ={estilos.nomeCampo} >Data início</label>
                 <input
                     type='date'                        
