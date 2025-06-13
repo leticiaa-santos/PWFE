@@ -4,7 +4,7 @@ import add  from '../assets/add.png';
 import edit from '../assets/edit.png';
 import deletar from '../assets/delete.png';
 import estilo from './Visualizar.module.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export function Ambientes(){
     
@@ -12,6 +12,7 @@ export function Ambientes(){
     const [professores, setProfessores] = useState([]);
     const [salas, setSalas] = useState([]);
     const [disciplinas, setDisciplinas] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem('access_token');
@@ -96,6 +97,7 @@ export function Ambientes(){
         .then(() => {
             alert('Ambiente excluído com sucesso!');
             setDisciplinas(prev => prev.filter(dis => dis.id !== id));
+            navigate('/inicial/ambiente');
         })
         .catch(error => {
             console.error('Erro ao excluir ambiente:', error);
