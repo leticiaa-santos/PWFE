@@ -76,7 +76,7 @@ export function AmbienteEditar() {
                 });
  
                 // Preenche o formulário
-                reset(resAmbiente.data);
+                reset(resAmbiente.data.reserva);
  
             } catch (error) {
                 console.error("Erro ao carregar professores", error);
@@ -98,7 +98,7 @@ export function AmbienteEditar() {
                 });
  
                 // Preenche o formulário
-                reset(resAmbiente.data);
+                reset(resAmbiente.data.reserva);
  
             } catch (error) {
                 console.error("Erro ao carregar salas", error);
@@ -120,7 +120,7 @@ export function AmbienteEditar() {
                 });
  
                 // Preenche o formulário
-                reset(resAmbiente.data);
+                reset(resAmbiente.data.reserva);
  
             } catch (error) {
                 console.error("Erro ao carregar disciplinas", error);

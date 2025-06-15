@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import estilos from './Cadastrar.module.css'
+import { useNavigate } from 'react-router-dom';
 
 // const schemaAmbientes = z.object({
 //     data_inicio: z.date(),
@@ -64,6 +65,7 @@ export function AmbienteCadastrar(){
     const [professores, setProfessores] = useState([]);
     const [salas, setSalas] = useState([]);
     const [disciplinas, setDisciplinas] = useState([]);
+    const navigate = useNavigate();
 
     const{
         register,
@@ -145,6 +147,7 @@ export function AmbienteCadastrar(){
             console.log('Reserva cadastrada com sucesso!', response.data);
             alert('Reserva cadastrada com sucesso!');
             reset();
+            navigate('/inicial/ambiente');
        
         } catch (error) {
               console.error('Erro ao cadastrar reserva', error);

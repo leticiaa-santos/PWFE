@@ -95,13 +95,13 @@ export function Ambientes(){
             }
         })
         .then(() => {
-            alert('Ambiente excluído com sucesso!');
+            alert('Reserva excluída com sucesso!');
             setAmbientes(prev => prev.filter(ambiente => ambiente.id !== id));
             navigate('/inicial/ambiente');
         })
         .catch(error => {
-            console.error('Erro ao excluir ambiente:', error);
-            alert('Erro ao excluir o ambiente.');
+            console.error('Erro ao excluir reserva:', error);
+            alert('Erro ao excluir a reserva.');
         });
     };
 

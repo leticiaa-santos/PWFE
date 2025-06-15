@@ -2,8 +2,9 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import React, {useEffect, useState, useNavigate} from 'react';
+import React, {useEffect, useState} from 'react';
 import estilos from './Cadastrar.module.css'
+import { useNavigate } from 'react-router-dom';
 
 const schemaDisciplinas = z.object({
     nome: z.string()
@@ -73,8 +74,8 @@ export function DisciplinaCadastrar(){
                     }
                 }
             );
-            console.log('Disciplina cadastrado com sucesso!', response.data);
-            alert('Disciplina cadastrado com sucesso!');
+            console.log('Disciplina cadastrada com sucesso!', response.data);
+            alert('Disciplina cadastrada com sucesso!');
             reset();
             navigate('/inicial/disciplina');
        
@@ -93,7 +94,7 @@ export function DisciplinaCadastrar(){
                     <input                        
                         className={estilos.inputField}
                         {...register('nome')}
-                        placeholder="Materia"
+                        placeholder="Nome"
                     />
                     {errors.nome && <p className={estilos.error}>{errors.nome.message}</p>}
                 
@@ -125,7 +126,7 @@ export function DisciplinaCadastrar(){
                 <textarea
                     className={estilos.inputField}
                     {...register('descricao')}
-                    placeholder="Descreva o curso com até 2000 caracteres"
+                    placeholder="Descreva a disciplina com até 255 caracteres"
                     rows={5}
                     />
                     {errors.descricao && <p className={estilos.error}>{errors.descricao.message}</p>}

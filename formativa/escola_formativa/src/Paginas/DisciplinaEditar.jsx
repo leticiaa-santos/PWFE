@@ -43,10 +43,7 @@ export function DisciplinaEditar() {
     });
  
     useEffect(() => {
-        
-        if (id) {
-                buscarProfessores();
-            }
+
 
         async function buscarProfessores() {
             try {
@@ -64,14 +61,14 @@ export function DisciplinaEditar() {
  
                 // Preenche o formulário
                 console.log("Dados da disciplina: ", resDisciplina.data)
-                reset(resDisciplina.data);
+                reset(resDisciplina.data.disciplina);
  
             } catch (error) {
                 console.error("Erro ao carregar professores", error);
             }
         }
         buscarProfessores();
-    }, [id]);
+    }, []);
  
     async function obterDadosFormulario(data) {
       console.log("Dados do formulário:", data);
