@@ -9,7 +9,9 @@ from .views import (LoginView,
                     DisciplinaRetrieveUpdateDestroy, 
                     DisciplinaProfessorList, 
                     SalaListCreate, 
-                    SalaRetrieveUpdateDestroy)
+                    SalaRetrieveUpdateDestroy,
+                    ProfessoresListView,
+                    GestoresListView)
 
 urlpatterns = [
     # Login
@@ -18,6 +20,8 @@ urlpatterns = [
     # Usuario
     path('usuario/', UsuarioListCreate.as_view()),
     path('usuario/<int:pk>/', UsuarioRetrieveUpdateDestroy.as_view()),
+    path('usuario/professor/', ProfessoresListView.as_view()),
+    path('usuario/gestor/', GestoresListView.as_view()),
 
     # Sala
     path('sala/', SalaListCreate.as_view()),

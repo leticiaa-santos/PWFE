@@ -15,6 +15,22 @@ class UsuarioListCreate(ListCreateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
     permission_classes = [IsGestor]
+    
+
+class ProfessoresListView(ListAPIView):
+    serializer_class = UsuarioSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Usuario.objects.filter(tipo='P')
+
+
+class GestoresListView(ListAPIView):
+    serializer_class = UsuarioSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Usuario.objects.filter(tipo='G')
 
 
 # View para recuperar, atualizar ou deletar um usuário específico (apenas para gestores)

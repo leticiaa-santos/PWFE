@@ -45,7 +45,7 @@ export function DisciplinaCadastrar(){
         async function buscarProfessores() {
             try{
                 const token = localStorage.getItem('access_token');
-                const response = await axios.get('http://127.0.0.1:8000/api/usuario/',{
+                const response = await axios.get('http://127.0.0.1:8000/api/usuario/professor/',{
                     headers:{
                         'Authorization': `Bearer ${token}`
                     }

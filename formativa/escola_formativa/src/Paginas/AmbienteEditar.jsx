@@ -64,7 +64,7 @@ export function AmbienteEditar() {
         async function buscarProfessores() {
             try {
                 const token = localStorage.getItem('access_token');
-                const response = await axios.get('http://127.0.0.1:8000/api/usuario/', {
+                const response = await axios.get('http://127.0.0.1:8000/api/usuario/professor/', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -72,7 +72,9 @@ export function AmbienteEditar() {
                 setProfessores(response.data);
                 //Preenche o formulários com os dados do registro do ID
                  const resAmbiente = await axios.get(`http://127.0.0.1:8000/api/reservas/${id}/`, {
-                    headers: { Authorization: `Bearer ${token}` }
+                    headers: { 
+                        Authorization: `Bearer ${token}` 
+                    }
                 });
  
                 // Preenche o formulário
@@ -155,6 +157,7 @@ export function AmbienteEditar() {
  
         } catch (error) {
             console.error('Erro ao editar reserva', error);
+            console.log('Resposta do servidor:', error.response?.data);
             alert("Erro ao editar reserva");
         }
     }

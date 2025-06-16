@@ -3,6 +3,9 @@ from .models import Usuario, Disciplina, ReservaAmbiente, Sala
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class UsuarioSerializer(serializers.ModelSerializer):
+    
+    password = serializers.CharField(write_only=True, required=False)
+    
     class Meta:
         model = Usuario
         fields = '__all__'
@@ -31,13 +34,20 @@ class ReservaAmbienteSerializer(serializers.ModelSerializer):
         data_termino = data.get('data_termino')
         sala_reservada = data.get('sala_reservada')
         periodo = data.get('periodo')
-        if ReservaAmbiente.objects.filter(
+
+        # Busca as reservas conflitantes
+        conflitos = ReservaAmbiente.objects.filter(
             sala_reservada=sala_reservada,
             data_inicio__lte=data_termino,
             data_termino__gte=data_inicio,
             periodo=periodo
-        ).exists():
-            
+        )
+
+        # Se estiver editando, ignora a própria instância
+        if self.instance:
+            conflitos = conflitos.exclude(id=self.instance.id)
+
+        if conflitos.exists():
             raise serializers.ValidationError("Não é possível realizar essa reserva, já existe uma!")
 
         return data

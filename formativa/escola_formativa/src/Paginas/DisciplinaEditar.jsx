@@ -22,10 +22,10 @@ const schemaDisciplina = z.object({
         .min(1, 'Informe ao menos um caractere')
         .max(300, 'Informe até 300 caracteres'),
     professor: z.number({
-        invalid_type_error: 'Selecione um professor'
-                            }).min(1, 'Selecione um professor')
+        invalid_type_error: 'Selecione um professor'})
+        .min(1, 'Selecione um professor')
 });
- 
+
 export function DisciplinaEditar() {
     
  
@@ -48,7 +48,7 @@ export function DisciplinaEditar() {
         async function buscarProfessores() {
             try {
                 const token = localStorage.getItem('access_token');
-                const response = await axios.get('http://127.0.0.1:8000/api/usuario/', {
+                const response = await axios.get('http://127.0.0.1:8000/api/usuario/professor/', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -86,14 +86,14 @@ export function DisciplinaEditar() {
                 }
             );
  
-            console.log('Disciplina cadastrado com sucesso!', response.data);
-            alert('Disciplina cadastrado com sucesso!');
+            console.log('Disciplina atualizada com sucesso!', response.data);
+            alert('Disciplina atualizada com sucesso!');
             reset();
             navigate('/inicial/disciplina');
  
         } catch (error) {
-            console.error('Erro ao cadastrar disciplina', error);
-            alert("Erro ao cadastrar disciplina");
+            console.error('Erro ao atualizar disciplina', error);
+            alert("Erro ao atualizar disciplina");
         }
     }
  

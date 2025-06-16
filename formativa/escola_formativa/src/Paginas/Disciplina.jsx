@@ -29,7 +29,7 @@ export function Disciplina(){
         });
 
         //busca dos professores
-        axios.get('http://127.0.0.1:8000/api/usuario/', {
+        axios.get('http://127.0.0.1:8000/api/usuario/professor/', {
             headers:{
                 'Authorization': `Bearer ${token}`
             }
@@ -97,7 +97,7 @@ export function Disciplina(){
                                 <td>{disciplina.descricao}</td>
                                 <td>{professores[disciplina.professor]}</td>
                                 <td>
-                                    <Link to={`/inicial/editar/${disciplina.id}/`}>
+                                    <Link to={`/inicial/disceditar/${disciplina.id}/`}>
                                         <img className={estilo.icone} src={edit}/>
                                     </Link>
 

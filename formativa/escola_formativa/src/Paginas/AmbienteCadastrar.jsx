@@ -6,23 +6,6 @@ import React, {useEffect, useState} from 'react';
 import estilos from './Cadastrar.module.css'
 import { useNavigate } from 'react-router-dom';
 
-// const schemaAmbientes = z.object({
-//     data_inicio: z.date(),
-//     data_termino: z.date(),
-//     periodo: z.string()
-//         .min(1, 'Informe o periodo')
-//         .max(8, 'Informe no máximo 100 caracteres'),
-//     sala_reservada: z.number(
-//         {invalid_type_error: 'Selecione uma sala'})
-//         .min(1, 'selecione uma sala'),
-//     professor: z.number(
-//         {invalid_type_error: 'Selecione um professor'})
-//         .min(1, 'selecione um professor'),
-//     disciplina: z.number(
-//         {invalid_type_error: 'Selecione uma disciplina'})
-//         .min(1, 'selecione uma disciplina')
-
-// });
 
 const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -34,7 +17,7 @@ const schemaAmbientes = z.object({
         .regex(dateRegex, 'Data de término deve estar no formato YYYY-MM-DD'),
 
     sala_reservada: z.number()
-        .min(1, 'Informe a descrição da reserva')
+        .min(1, 'Informe a sala da reserva')
         .max(255, 'Máximo de 255 caracteres'),
 
     periodo: z.string()
@@ -42,22 +25,23 @@ const schemaAmbientes = z.object({
         .max(8, 'Informe no máximo 100 caracteres'),
 
     disciplina: z.number({
-        invalid_type_error: 'Selecione um professor válido'})
-        .min(1, 'Informe a descrição da disciplina')
-        .max(255, 'Máximo de 255 caracteres'),
-
+        invalid_type_error: 'Selecione uma disciplina válida'})
+        .min(1, 'Informe uma disciplina'),
 
     professor: z.number({
         invalid_type_error: 'Selecione um professor válido'})
         .min(1, 'Selecione um professor')
-        }).refine((data) => {
+})
+        
+.refine((data) => {
 
     const inicio = new Date(data.data_inicio);
     const fim = new Date(data.data_termino);
     return inicio <= fim;
 
 }, {
-    message: 'A data de término deve ser posterior à de início'
+    message: 'A data de término deve ser posterior à de início',
+    path: ['data_termino']
 });
 
 export function AmbienteCadastrar(){
@@ -81,7 +65,7 @@ export function AmbienteCadastrar(){
         async function buscarProfessores() {
             try{
                 const token = localStorage.getItem('access_token');
-                const response = await axios.get('http://127.0.0.1:8000/api/usuario/',{
+                const response = await axios.get('http://127.0.0.1:8000/api/usuario/professor/',{
                     headers:{
                         'Authorization': `Bearer ${token}`
                     }
@@ -159,7 +143,9 @@ export function AmbienteCadastrar(){
         <div className={estilos.container}>
             
             <form className={estilos.loginForm} onSubmit={handleSubmit(obterDadosFormulario)}>
+                
                 <h2 className={estilos.titulo}>Cadastro de Reserva</h2>
+                
                 <label className ={estilos.nomeCampo} >Data início</label>
                 <input
                     type='date'                        

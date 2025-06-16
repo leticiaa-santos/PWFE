@@ -32,7 +32,7 @@ export function Ambientes(){
         });
 
         //busca dos professores
-        axios.get('http://127.0.0.1:8000/api/usuario/', {
+        axios.get('http://127.0.0.1:8000/api/usuario/professor/', {
             headers:{
                 'Authorization': `Bearer ${token}`
             }
@@ -121,9 +121,10 @@ export function Ambientes(){
                             <th>Data início</th>
                             <th>Data término</th>
                             <th>Período</th>
-                            <th>Sala criada</th>
+                            <th>Sala reservada</th>
                             <th>Professor</th>
                             <th>Disciplina</th>
+                            <th>Ação</th>
                         </tr>
                     </thead>
                     <tbody>
