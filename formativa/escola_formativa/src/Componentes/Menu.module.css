@@ -1,11 +1,22 @@
 .container{
-    width: 96%;
-    height: 80%;
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+.containerBanner{
+    width: 100%;
+    margin: 0;
+}
+
+.containerBanner img{
+    width: 100%;
+}
+
+
 
 .menu{
     width: 700px;
