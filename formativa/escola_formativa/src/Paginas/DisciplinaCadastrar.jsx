@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
-import estilos from './Cadastrar.module.css'
+import estilos from './Formulario.module.css'
 import { useNavigate } from 'react-router-dom';
 
 const schemaDisciplinas = z.object({

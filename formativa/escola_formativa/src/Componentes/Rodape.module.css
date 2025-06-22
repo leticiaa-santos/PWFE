@@ -1,0 +1,46 @@
+.footer {
+  background-color: #EEEEEE;
+  color: #2F5070;
+  padding: 40px 20px 20px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.infoContainer h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.infoContainer p, .infoContainer li, .copyRight p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.infoContainer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.infoContainer a {
+  text-decoration: none;
+  color: #2F5070;
+}
+
+.infoContainer a:hover {
+  text-decoration: underline;
+}
+
+.copyRight {
+  text-align: center;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}

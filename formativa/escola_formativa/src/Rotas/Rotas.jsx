@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { Login } from '../Paginas/Login';
 import { Inicial } from '../Paginas/Inicial';
+import { Conteudo } from '../Componentes/Conteudo';
 import { DisciplinasProfessor } from '../Paginas/DisciplinasProfessor';
 import { Disciplina } from '../Paginas/Disciplina';
 import { DisciplinaCadastrar } from '../Paginas/DisciplinaCadastrar';
@@ -18,6 +19,7 @@ import { ProfessoresEditar } from '../Paginas/ProfessoresEditar';
 import { Gestores } from '../Paginas/Gestores';
 import { GestoresEditar } from '../Paginas/GestoresEditar';
 import { GestoresCadastrar } from '../Paginas/GestoresCadastrar';
+import { NotFound } from '../Paginas/NotFound';
 
 export function Rotas(){
     return(
@@ -27,7 +29,7 @@ export function Rotas(){
 
             <Route path='/inicial' element={<Inicial />}>
 
-                {/* <Route index element={<Menu />} /> */}
+                <Route index element={<Conteudo />} />
 
                 <Route path = 'discprofessor' element = {<DisciplinasProfessor />} />
                 <Route path = 'disciplina' element = {<Disciplina />} />
@@ -50,7 +52,12 @@ export function Rotas(){
                 <Route path = 'gestor' element = {<Gestores />} />
                 <Route path = 'gestorcadastrar' element = {<GestoresCadastrar />} />
                 <Route path = 'gestoreditar/:id' element = {<GestoresEditar />} />
+
+                <Route path="*" element={<NotFound />} />
+                
             </Route>
+            
+            <Route path="*" element={<NotFound />} />
 
         </Routes>
     )

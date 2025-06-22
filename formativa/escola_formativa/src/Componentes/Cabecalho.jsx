@@ -22,47 +22,45 @@ export function Cabecalho(){
         <header>
             
             <nav className={estilo.container}>
-                <img className={estilo.logo} src={ logo }/>
+                <Link to = '/inicial'>
+                    <img className={estilo.logo} src={ logo }/>
+                </Link>
                 <ul>
 
-                    <Link to = {linkDisciplina}>
+                    <Link to = {linkDisciplina} className={estilo.linkMenu}>
                         <li>Disciplinas</li>
                     </Link>
                     
-                    <Link to = {linkAmbiente}>
+                    <Link to = {linkAmbiente} className={estilo.linkMenu}>
                         <li>Reservas</li>
                     </Link>
 
                     {tipo === 'G' && (
                         <>
-                            <Link to = 'professor'>
+                            <Link to = 'professor' className={estilo.linkMenu}>
                                 <li>Professores</li>
                             </Link>
                             
-                            <Link to = 'gestor'>
+                            <Link to = 'gestor' className={estilo.linkMenu}>
                                 <li>Gestores</li>
                             </Link>
 
-                            <Link to = 'sala'>
+                            <Link to = 'sala' className={estilo.linkMenu}>
                                 <li>Salas</li>
                             </Link>
                             
                         </>
                     )}
 
-                    <li>Olá, {nome}!</li>
+                    <li className={estilo.usuarioNome}>Olá, {nome}!</li>
 
-                    <li onClick={() => handleLogout()}>  
+                    <li onClick={() => handleLogout()} className={estilo.linkLogout}>  
                         Sair
                         <img src={logout} alt="" />
                     </li>
                     
                 </ul>
             </nav>
-
-            <div className={estilo.containerBanner}>
-                <img src={banner} alt="" />
-            </div>
 
         </header>
     );

@@ -4,6 +4,7 @@ import estilos from './Login.module.css';
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
+import logoLogin from '../assets/logoLogin.png';
  
 const schemaLogin = z.object({
     username: z.string()
@@ -53,6 +54,9 @@ export function Login() {
  
     return (
         <div className={estilos.container}>
+            <div>
+                <img src={logoLogin} alt="" className={estilos.logo}/>
+            </div>
             <form onSubmit={handleSubmit(obterDadosFormulario)} className={estilos.loginForm}>
                 <h2 className={estilos.titulo}>Login</h2>
  

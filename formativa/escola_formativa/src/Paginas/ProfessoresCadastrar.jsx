@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import estilos from './Cadastrar.module.css'
+import estilos from './Formulario.module.css'
 import { useNavigate } from 'react-router-dom';
 
 const dateRegex = /^\d{4}-\d{2}-\d{2}$/;

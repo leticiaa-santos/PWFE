@@ -1,0 +1,9 @@
+.pageContainer {
+  min-height: 100vh; /* altura mínima de 100% da viewport */
+  display: flex;
+  flex-direction: column;
+}
+
+.conteudo {
+  flex: 1; /* isso empurra o footer para baixo */
+}

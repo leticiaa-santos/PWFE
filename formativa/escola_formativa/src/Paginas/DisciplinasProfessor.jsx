@@ -33,9 +33,9 @@ export function DisciplinasProfessor(){
                 {disciplinas.map(disciplina=>(
                     <div className={estilo.card} key={disciplina.id}>
                         <h3 className={estilo.nome}>{disciplina.nome}</h3>
-                        <p><strong>Curso:</strong>{disciplina.curso}</p>
-                        <p><strong>Descrição:</strong>{disciplina.descricao}</p>
-                        <p><strong>Carga Horária:</strong>{disciplina.carga_horaria}</p>
+                        <p><strong>Curso: </strong>{disciplina.curso}</p>
+                        <p><strong>Descrição: </strong>{disciplina.descricao}</p>
+                        <p><strong>Carga Horária: </strong>{disciplina.carga_horaria}</p>
                     </div>
                 ))}
             </div>

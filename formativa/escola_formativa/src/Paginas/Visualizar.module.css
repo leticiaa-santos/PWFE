@@ -1,3 +1,5 @@
+/*visualização do professor */
+
 .containerCard{
     width: 100%;
     max-width: 1000px;
@@ -8,6 +10,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin: 30px auto;
 }
 
 .tituloCard{
@@ -18,7 +22,7 @@
 }
 
 .listaCard{
-    display: grid; /* grelha -> cardzinhos*/
+    display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     width: 100%;
@@ -26,11 +30,12 @@
 
 .card{
     background-color: #f9f9f9;
-    border-left: 6px solid #e0a423;
+    border-left: 6px solid #001931;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s ease-in-out;
+    line-height: 1.5;
 }
 
 .card:hover{
@@ -39,43 +44,37 @@
 
 .nome{
     font-size: 18px;
-    color: #e0a423;
+    color: #2F5070;
     margin-bottom: 10px;
 }
 
 
-/* pagina de disciplina */
+/* visualização do gestor */
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: auto; */
-    width: 90%;
+    width: 60%;
     margin: 40px auto;
-    background-color: #f9f9f9;
+    background-color: #EEEEEE;
     flex-direction: column;
     border-radius: 16px;
-    padding: 20px;
+    padding: 30px;
     box-sizing: border-box;
+    box-shadow: 0 0 2px 1px #dadada;
 }
 
 .titulo{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     text-align:  center;
-    color: #000;
-    margin-bottom: 24px;
+    color: #001931;
 }
-
-/* .tabelaWrapper{
-    overflow-x: hidden;
-} */
 
 .tabelaDados{
     width: 100%;
     background-color:rgba(255, 255, 255, 0.95);
     padding: 20px;
-    border-radius: 16px;
     border: none;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) ;
     table-layout: auto;
@@ -83,30 +82,31 @@
 }
 
 .tabelaDados thead{
-    background-color: #CAF0F8;
-    color: #f9f9f9;
+    background-color: #001931;
+    color: #EEEEEE;
     font-weight: bold;
     text-transform: uppercase;
+    border-radius: 5px;
 }
 
-.tabelaDados th,
-.tabelaDados td{
+.tabelaDados th{
     padding: 12px 16px;
     border-bottom: 1px solid #ddd;
-    color: #333;
+    color: #EEEEEE;
     word-wrap: break-word;
 }
 
-/* .tabeladados tr:hover{
-    background-color: #ffffff;
-  
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-   
-} */
+.tabelaDados td{
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    color: #444;
+    word-wrap: break-word;
+    text-align: center;
+}
 
 .icone{
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     padding: 5px;  
     cursor: pointer; 
 }
@@ -130,8 +130,8 @@
 }
 
 .iconeAdd{
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
     margin-right: 8px;
     cursor: pointer;
 }

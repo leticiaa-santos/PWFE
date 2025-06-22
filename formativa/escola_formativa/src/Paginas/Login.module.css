@@ -2,7 +2,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 90vh;
+    flex-direction: column;
+}
+
+.logo{
+    width: 400px;
+    height: 400px;
 }
 
 .loginForm{
@@ -21,7 +27,7 @@
 
 .titulo{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 24px;
+    font-size: 28px;
     text-align: center;
     color: #EEEEEE;
     margin-bottom: 25px;
@@ -29,7 +35,7 @@
 
 .label{
     padding: 10px 0 5px 0;
-    font-size: 14px;
+    font-size: 18px;
     color: #EEEEEE;
     margin: 5px;
 }
@@ -52,7 +58,7 @@
 .submitButton{
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #1282A2;
+    background-color: #2F5070;
     font-size: 16px;
     font-weight: bold;
     padding: 12px;
@@ -61,10 +67,11 @@
     color: #EEEEEE;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border: none;
 }
 
-.submitButton{
-    background-color: #15aad3;
+.submitButton:hover{
+    background-color: #1282A2;
 }
 
 .error{

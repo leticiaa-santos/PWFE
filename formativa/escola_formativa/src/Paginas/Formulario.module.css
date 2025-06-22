@@ -2,16 +2,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80vh;
-    margin: auto;
+    height: 130vh;
+    margin: 30px auto;
 }
 
 .loginForm{
     width: 100%;
-    max-width: 500px;
-    height: auto;
+    max-width: 560px;
     background-color: #001931;
-    padding: 30px;
+    padding: 50px;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -26,12 +25,12 @@
     font-size: 24px;
     text-align: center;
     color: #EEEEEE;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
-.label{
+.nomeCampo{
     padding: 10px 0 5px 0;
-    font-size: 14px;
+    font-size: 16px;
     color: #EEEEEE;
     margin: 5px;
 }
@@ -54,7 +53,7 @@
 .submitButton{
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #1282A2;
+    background-color: #2F5070;
     font-size: 16px;
     font-weight: bold;
     padding: 12px;
@@ -63,10 +62,11 @@
     color: #EEEEEE;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border: none;
 }
 
-.submitButton{
-    background-color: #15aad3;
+.submitButton:hover{
+    background-color: #1282A2;
 }
 
 .error{

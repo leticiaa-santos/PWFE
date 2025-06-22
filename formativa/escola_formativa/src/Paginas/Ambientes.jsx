@@ -108,7 +108,7 @@ export function Ambientes(){
     return(
 
         <main className={estilo.container}>
-            <h3 className={estilo.titulo}>Ambientes</h3>
+            <h3 className={estilo.titulo}>Reservas</h3>
             <div className={estilo.topoAcoes}>
                 <Link to="/inicial/ambicadastrar" className={estilo.botaoAdicionar}>
                     <img className={estilo.iconeAdd} src={add} alt="Adicionar ambientes" />
