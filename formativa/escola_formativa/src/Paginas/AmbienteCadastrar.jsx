@@ -6,9 +6,10 @@ import React, {useEffect, useState} from 'react';
 import estilos from './Formulario.module.css'
 import { useNavigate } from 'react-router-dom';
 
-
+// Definição de um regex para formatar a data
 const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
+// Campos que estão no back-end para carregar no formulario
 const schemaAmbientes = z.object({
     data_inicio: z.string()
         .regex(dateRegex, 'Data de início deve estar no formato YYYY-MM-DD'),
@@ -32,7 +33,8 @@ const schemaAmbientes = z.object({
         invalid_type_error: 'Selecione um professor válido'})
         .min(1, 'Selecione um professor')
 })
-        
+      
+// Tratamento de data
 .refine((data) => {
 
     const inicio = new Date(data.data_inicio);
@@ -62,6 +64,7 @@ export function AmbienteCadastrar(){
 
     useEffect(() => {
 
+        // Função que busca os professores, pois são chaves estrangeiras
         async function buscarProfessores() {
             try{
                 const token = localStorage.getItem('access_token');
@@ -77,6 +80,7 @@ export function AmbienteCadastrar(){
             
         }
 
+        // Função que busca as salas, pois são chaves estrangeiras
         async function buscarSalas() {
             try{
                 const token = localStorage.getItem('access_token');
@@ -92,6 +96,7 @@ export function AmbienteCadastrar(){
             
         }
 
+        // Função que busca as disciplinas, pois são chaves estrangeiras
         async function buscarDisciplinas() {
             try{
                 const token = localStorage.getItem('access_token');
@@ -113,6 +118,7 @@ export function AmbienteCadastrar(){
 
     }, []);
 
+    // Validar os dados informados
     async function obterDadosFormulario(data) {
         console.log("dados do formulário ", data);
 
@@ -142,6 +148,7 @@ export function AmbienteCadastrar(){
     return (
         <div className={estilos.container}>
             
+            {/* Formulário de preenchimento dos dados */}
             <form className={estilos.loginForm} onSubmit={handleSubmit(obterDadosFormulario)}>
                 
                 <h2 className={estilos.titulo}>Cadastro de Reserva</h2>

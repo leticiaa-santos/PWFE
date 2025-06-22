@@ -6,6 +6,7 @@ import React, {useEffect, useState} from 'react';
 import estilos from './Formulario.module.css'
 import { useNavigate } from 'react-router-dom';
 
+// Campos que estão no back-end para carregar no formulario
 const schemaDisciplinas = z.object({
     nome: z.string()
         .min(1, 'Informe um nome')
@@ -42,6 +43,8 @@ export function DisciplinaCadastrar(){
     });
 
     useEffect(() => {
+
+        // Função que busca os professores, pois são chaves estrangeiras
         async function buscarProfessores() {
             try{
                 const token = localStorage.getItem('access_token');
@@ -59,6 +62,7 @@ export function DisciplinaCadastrar(){
         buscarProfessores();
     }, []);
 
+    // Validar os dados informados
     async function obterDadosFormulario(data) {
         console.log("dados do formulário ", data);
 
@@ -88,6 +92,7 @@ export function DisciplinaCadastrar(){
     return (
         <div className={estilos.container}>
             
+            {/* Formulário de preenchimento dos dados */}
             <form className={estilos.loginForm} onSubmit={handleSubmit(obterDadosFormulario)}>
                     <h2 className={estilos.titulo}>Cadastro de Disciplina</h2>
                     <label className ={estilos.nomeCampo} >Nome da Disciplina</label>

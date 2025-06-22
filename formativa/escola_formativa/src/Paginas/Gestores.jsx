@@ -6,31 +6,36 @@ import deletar from '../assets/delete.png';
 import estilo from './Visualizar.module.css'
 import { Link, useNavigate } from 'react-router-dom';
 
+// Componente que exibe e gerencia os gestores
 export function Gestores(){
     
+    // Estados para armazenar dados da API
     const [gestores, setGestores] = useState([]);
     const navigate = useNavigate();
 
+    // Carregamento dos dados
     useEffect(() => {
         const token = localStorage.getItem('access_token');
 
+        // Buscar gestores
         axios.get('http://127.0.0.1:8000/api/usuario/gestor/',{
             headers:{
                 'Authorization': `Bearer ${token}`
             }
         })
-        //se der bom (200) quero popular a minha variável disciplina com os dados da API
+
         .then(response => {
             console.log("Dados recebidos:", response.data);
             const dados = response.data.results || response.data;
             setGestores(dados);
         })
-        //se der ruim
+        
         .catch(error => {
             console.error("Erro: ", error);
         });
     }, [])
 
+    // Função para deletar gestor
     const handleDelete = (id) => {
         const confirmar = window.confirm('Tem certeza que deseja excluir este gestor?');
         if (!confirmar) return;
@@ -53,15 +58,20 @@ export function Gestores(){
         });
     };
 
+    // Interface principal da página
     return(
 
         <main className={estilo.container}>
             <h3 className={estilo.titulo}>Gestores</h3>
+
+            {/* Botão de adicionar novo gestor */}
             <div className={estilo.topoAcoes}>
                 <Link to="/inicial/gestorcadastrar" className={estilo.botaoAdicionar}>
                     <img className={estilo.iconeAdd} src={add} alt="Adicionar gestores" />
                 </Link>
             </div>
+
+            {/* Tabela de gestores */}
             <div className={estilo.tabelaWrapper}>
                 <table className={estilo.tabelaDados}>
                     <thead>

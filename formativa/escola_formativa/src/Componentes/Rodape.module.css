@@ -20,7 +20,9 @@
   margin-bottom: 10px;
 }
 
-.infoContainer p, .infoContainer li, .copyRight p {
+.infoContainer p, 
+.infoContainer li, 
+.copyRight p {
   font-size: 14px;
   line-height: 1.6;
 }

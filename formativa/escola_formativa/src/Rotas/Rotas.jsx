@@ -31,32 +31,39 @@ export function Rotas(){
 
                 <Route index element={<Conteudo />} />
 
+                {/* Rotas relacionadas a disciplina */}
                 <Route path = 'discprofessor' element = {<DisciplinasProfessor />} />
                 <Route path = 'disciplina' element = {<Disciplina />} />
                 <Route path = 'discadastrar' element = {<DisciplinaCadastrar />} />
                 <Route path = 'disceditar/:id' element = {<DisciplinaEditar />} />
 
+                {/* Rotas relacionadas a ambiente */}
                 <Route path = 'ambiprofessor' element = {<AmbientesProfessor />} />
                 <Route path = 'ambiente' element = {<Ambientes />} />
                 <Route path = 'ambicadastrar' element = {<AmbienteCadastrar />} />
                 <Route path = 'ambieditar/:id' element = {<AmbienteEditar />} />
 
+                {/* Rotas relacionadas a sala */}
                 <Route path = 'sala' element = {<Salas />} />
                 <Route path = 'salacadastrar' element = {<SalaCadastrar />} />
                 <Route path = 'salaeditar/:id' element = {<SalaEditar />} />
 
+                {/* Rotas relacionadas a professor */}
                 <Route path = 'professor' element = {<Professores />} />
                 <Route path = 'profcadastrar' element = {<ProfessoresCadastrar />} />
                 <Route path = 'profeditar/:id' element = {<ProfessoresEditar />} />
 
+                {/* Rotas relacionadas a gestor */}
                 <Route path = 'gestor' element = {<Gestores />} />
                 <Route path = 'gestorcadastrar' element = {<GestoresCadastrar />} />
                 <Route path = 'gestoreditar/:id' element = {<GestoresEditar />} />
 
+                {/* Rota para uma página que não existe dentro de /inicial */}
                 <Route path="*" element={<NotFound />} />
                 
             </Route>
             
+            {/* Rota para uma página que não existe fora de /inicial */}
             <Route path="*" element={<NotFound />} />
 
         </Routes>

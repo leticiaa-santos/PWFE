@@ -1,17 +1,16 @@
-import axios from 'axios'; // permime chamar uma API
+import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-//effect mostra isso em tela
 import estilo from './Visualizar.module.css'
 
+// Componente que mostra as disciplinas do professor
 export function DisciplinasProfessor(){
-    //crio uma variável disciplina que recebe os dados da api, e é controlada pelo state
     const [disciplinas, setDisciplina] = useState([]);
     
-    //()parametros, {}script, []dependencias, aqui mostro o que vou chamar 
+    // Carregamento dos dados ao abrir a tela
     useEffect(()=>{
         const token = localStorage.getItem('access_token');
 
-        //Chama o endereço da api que eu quero consumir
+        // Buscar disciplinas do professor
         axios.get('http://127.0.0.1:8000/api/professor/disciplinas/', {
             headers:{
                 'Authorization': `Bearer ${token}`
@@ -25,11 +24,13 @@ export function DisciplinasProfessor(){
         });
     },[]);
     
+    // Interface visual
     return(
         <div className={estilo.containerCard}>
             <h2 className={estilo.tituloCard}>Minhas Disciplinas</h2>
 
             <div className={estilo.listaCard}>
+                {/* Percorre as disciplinas e exibe os dados */}
                 {disciplinas.map(disciplina=>(
                     <div className={estilo.card} key={disciplina.id}>
                         <h3 className={estilo.nome}>{disciplina.nome}</h3>

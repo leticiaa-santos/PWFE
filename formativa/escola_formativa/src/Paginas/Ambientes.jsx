@@ -1,41 +1,34 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import add  from '../assets/add.png';
+import add from '../assets/add.png';
 import edit from '../assets/edit.png';
 import deletar from '../assets/delete.png';
-import estilo from './Visualizar.module.css'
+import estilo from './Visualizar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-export function Ambientes(){
-    
+export function Ambientes() {
+
+    // Estados para armazenar dados
     const [ambientes, setAmbientes] = useState([]);
     const [professores, setProfessores] = useState([]);
     const [salas, setSalas] = useState([]);
     const [disciplinas, setDisciplinas] = useState([]);
     const navigate = useNavigate();
 
+    // Carregamento inicial
     useEffect(() => {
         const token = localStorage.getItem('access_token');
 
-        axios.get('http://127.0.0.1:8000/api/reservas/',{
-            headers:{
-                'Authorization': `Bearer ${token}`
-            }
+        // Buscar reservas
+        axios.get('http://127.0.0.1:8000/api/reservas/', {
+            headers: { 'Authorization': `Bearer ${token}` }
         })
-        //se der bom (200) quero popular a minha variável disciplina com os dados da API
-        .then(response => {
-            setAmbientes(response.data);
-        })
-        //se der ruim
-        .catch(error => {
-            console.error("Erro: ", error);
-        });
+        .then(response => setAmbientes(response.data))
+        .catch(error => console.error("Erro: ", error));
 
-        //busca dos professores
+        // Buscar professores
         axios.get('http://127.0.0.1:8000/api/usuario/professor/', {
-            headers:{
-                'Authorization': `Bearer ${token}`
-            }
+            headers: { 'Authorization': `Bearer ${token}` }
         })
         .then(response => {
             const professorPorId = {};
@@ -44,15 +37,11 @@ export function Ambientes(){
             });
             setProfessores(professorPorId);
         })
-        .catch(error => {
-            console.error("Erro ao buscar o professor ", error);
-        });
+        .catch(error => console.error("Erro ao buscar o professor ", error));
 
-        //busca de salas
+        // Buscar salas
         axios.get('http://127.0.0.1:8000/api/sala/', {
-            headers:{
-                'Authorization': `Bearer ${token}`
-            }
+            headers: { 'Authorization': `Bearer ${token}` }
         })
         .then(response => {
             const salaPorId = {};
@@ -61,15 +50,11 @@ export function Ambientes(){
             });
             setSalas(salaPorId);
         })
-        .catch(error => {
-            console.error("Erro ao buscar a sala ", error);
-        });
+        .catch(error => console.error("Erro ao buscar a sala ", error));
 
-        //busca de disciplinas
+        // Buscar disciplinas
         axios.get('http://127.0.0.1:8000/api/disciplinas/', {
-            headers:{
-                'Authorization': `Bearer ${token}`
-            }
+            headers: { 'Authorization': `Bearer ${token}` }
         })
         .then(response => {
             const disciplinaPorId = {};
@@ -78,21 +63,19 @@ export function Ambientes(){
             });
             setDisciplinas(disciplinaPorId);
         })
-        .catch(error => {
-            console.error("Erro ao buscar a disciplina ", error);
-        });
-    }, [])
+        .catch(error => console.error("Erro ao buscar a disciplina ", error));
 
+    }, []);
+
+    // Função para deletar reserva
     const handleDelete = (id) => {
         const confirmar = window.confirm('Tem certeza que deseja excluir esta reserva?');
         if (!confirmar) return;
- 
+
         const token = localStorage.getItem('access_token');
- 
+
         axios.delete(`http://127.0.0.1:8000/api/reservas/${id}/`, {
-            headers: {
-            'Authorization': `Bearer ${token}`
-            }
+            headers: { 'Authorization': `Bearer ${token}` }
         })
         .then(() => {
             alert('Reserva excluída com sucesso!');
@@ -105,15 +88,19 @@ export function Ambientes(){
         });
     };
 
-    return(
-
+    // Interface principal da página
+    return (
         <main className={estilo.container}>
             <h3 className={estilo.titulo}>Reservas</h3>
+
+            {/* Botão de adicionar nova reserva */}
             <div className={estilo.topoAcoes}>
                 <Link to="/inicial/ambicadastrar" className={estilo.botaoAdicionar}>
                     <img className={estilo.iconeAdd} src={add} alt="Adicionar ambientes" />
                 </Link>
             </div>
+
+            {/* Tabela de reservas */}
             <div className={estilo.tabelaWrapper}>
                 <table className={estilo.tabelaDados}>
                     <thead>
@@ -138,10 +125,14 @@ export function Ambientes(){
                                 <td>{disciplinas[ambiente.disciplina]}</td>
                                 <td>
                                     <Link to={`/inicial/ambieditar/${ambiente.id}/`}>
-                                        <img className={estilo.icone} src={edit}/>
+                                        <img className={estilo.icone} src={edit} />
                                     </Link>
-
-                                    <img src={deletar} alt="Excluir" className={estilo.icone} onClick={() => handleDelete(ambiente.id)}/>    
+                                    <img
+                                        src={deletar}
+                                        alt="Excluir"
+                                        className={estilo.icone}
+                                        onClick={() => handleDelete(ambiente.id)}
+                                    />
                                 </td>
                             </tr>
                         ))}
@@ -149,5 +140,5 @@ export function Ambientes(){
                 </table>
             </div>
         </main>
-    )
+    );
 }

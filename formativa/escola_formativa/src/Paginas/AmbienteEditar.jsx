@@ -6,8 +6,10 @@ import estilos from './Formulario.module.css';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
  
+// Definição de um regex para formatar a data
 const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
+// Campos que estão no back-end para carregar no formulario
 const schemaAmbientes = z.object({
     data_inicio: z.string()
         .regex(dateRegex, 'Data de início deve estar no formato YYYY-MM-DD'),
@@ -32,7 +34,10 @@ const schemaAmbientes = z.object({
     professor: z.number({
         invalid_type_error: 'Selecione um professor válido'})
         .min(1, 'Selecione um professor')
-        }).refine((data) => {
+})
+
+// Tratamento de data
+.refine((data) => {
 
     const inicio = new Date(data.data_inicio);
     const fim = new Date(data.data_termino);
@@ -61,6 +66,8 @@ export function AmbienteEditar() {
     });
  
     useEffect(() => {
+
+        // Função que busca os professores, pois são chaves estrangeiras
         async function buscarProfessores() {
             try {
                 const token = localStorage.getItem('access_token');
@@ -85,6 +92,7 @@ export function AmbienteEditar() {
             }
         }
 
+        // Função que busca as salas, pois são chaves estrangeiras
         async function buscarSalas() {
             try {
                 const token = localStorage.getItem('access_token');
@@ -107,6 +115,7 @@ export function AmbienteEditar() {
             }
         }
 
+        // Função que busca as disciplinas, pois são chaves estrangeiras
         async function buscarDisciplinas() {
             try {
                 const token = localStorage.getItem('access_token');
@@ -134,6 +143,7 @@ export function AmbienteEditar() {
         buscarProfessores();
     }, []);
  
+    // Validar os dados informados
     async function obterDadosFormulario(data) {
       console.log("Dados do formulário:", data);
         try {
@@ -165,6 +175,7 @@ export function AmbienteEditar() {
     return (
         <div className={estilos.conteiner}>
            
+           {/* Formulário de preenchimento dos dados */}
             <form className={estilos.loginForm} onSubmit={handleSubmit(obterDadosFormulario)}>
                 <h2 className={estilos.titulo}>Atualização de Reserva</h2>
                 <label className ={estilos.nomeCampo} >Data início</label>

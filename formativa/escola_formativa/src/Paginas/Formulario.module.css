@@ -1,3 +1,5 @@
+/* Esse estilo é para os formulários de criação e edição 
+das disciplinas, reservas, professores, gestores e salas */
 .container{
     display: flex;
     align-items: center;

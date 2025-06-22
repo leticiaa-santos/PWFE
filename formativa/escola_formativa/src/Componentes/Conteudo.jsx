@@ -8,11 +8,15 @@ import ambiente from '../assets/ambiente.png';
 export function Conteudo() {
   return (
     <>
+    
+      {/* Conteudo informativo sobre o sistema */}
+
       <div className={estilo.containerBanner}>
         <img src={banner} alt="" />
       </div>
 
       <div className={estilo.container}>
+
         <section className={estilo.sobre}>
           <h2>Sobre o Sistema</h2>
           <p>
@@ -39,26 +43,35 @@ export function Conteudo() {
         </section>
 
         <section className={estilo.funcionalidades}>
+
           <h2>Funcionalidades</h2>
+
           <div className={estilo.cards}>
+
             <div className={estilo.card}>
               <img src={professor} alt="" className={estilo.icone}/>
               <p>Cadastro de Professores</p>
             </div>
+
             <div className={estilo.card}>
               <img src={sala} alt="" className={estilo.icone}/>
               <p>Gerenciamento de Salas</p>
             </div>
+
             <div className={estilo.card}>
               <img src={disciplina} alt="" className={estilo.icone}/>
               <p>Controle de Disciplinas</p>
             </div>
+
             <div className={estilo.card}>
               <img src={ambiente} alt="" className={estilo.icone}/>
               <p>Reservas de Ambientes</p>
             </div>
+
           </div>
+
         </section>
+
       </div>
     </>
   );
