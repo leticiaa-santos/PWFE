@@ -45,7 +45,7 @@ export function CadTarefa () {
 
     useEffect(() => {
 
-        // Função que busca os professores, pois são chaves estrangeiras
+        // Função que busca as tarefas, pois são chaves estrangeiras
         async function buscarUsuario() {
             try{
                 const response = await axios.get('http://127.0.0.1:8000/api/usuario/',)
@@ -92,7 +92,7 @@ export function CadTarefa () {
             {errors.nomeSetor && <p>{errors.nomeSetor.message}</p>}
 
             <label>Prioridade</label>
-            <select name="" id="">
+            <select name="" id="" {...register("prioridade")}>
                 <option value="">Selecione a prioridade...</option>
                 {PRIORIDADE_CHOICES.map((prioridade) => (
                     <option key={prioridade} value={prioridade}>
