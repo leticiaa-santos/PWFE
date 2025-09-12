@@ -56,13 +56,17 @@ export function EditarTarefa () {
         }
     }
 
+    if (!tarefa) {
+        return <p>Carregando tarefa...</p>;
+    }
+
     return(
         <section>
             <h2>Editar Tarefa</h2>
 
             <form onSubmit={handleSubmit(salvarEdicao)}>
                 <label>Descrição:</label>
-                <textarea value={tarefa.descricao} readOnly />
+                <textarea value={tarefa.descricao} readOnly/>
 
                 <label>Setor</label>
                 <input type='text' value = {tarefa.nomeSetor} readOnly />
