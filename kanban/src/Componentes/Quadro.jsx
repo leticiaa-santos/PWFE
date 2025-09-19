@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Coluna } from "./Coluna";
+import { DndContext } from "@dnd-kit/core"; // é o uso da biblioteca de clicar e arrastar 
 
 export function Quadro () {
     const [tarefas, setTarefas] = useState([]);
@@ -24,19 +25,28 @@ export function Quadro () {
             });
     }, [])
 
+
+
     //armazenando em variáveis o resultado de uma função callback que procura tarefas com um certo status
     const tarefasAfazer = tarefas.filter(tarefa => tarefa.status === 'a fazer');
     const tarefasFazendo = tarefas.filter(tarefa => tarefa.status === 'fazendo');
     const tarefasFeito = tarefas.filter(tarefa => tarefa.status === 'feito');
 
     return (
+        <>
 
-        <main className="container">
             <h1>Meu Quadro</h1>
-            <Coluna titulo = "A fazer" tarefas={tarefasAfazer}/>
-            <Coluna titulo = "Fazendo" tarefas={tarefasFazendo}/>
-            <Coluna titulo = "Feito" tarefas={tarefasFeito}/>
-        </main>
+
+            <main className="container">
+                <section className="atividades">
+                    <Coluna titulo = "A fazer" tarefas={tarefasAfazer}/>
+                    <Coluna titulo = "Fazendo" tarefas={tarefasFazendo}/>
+                    <Coluna titulo = "Feito" tarefas={tarefasFeito}/>
+                </section>
+                
+            </main>
+
+        </>
         
         
     );

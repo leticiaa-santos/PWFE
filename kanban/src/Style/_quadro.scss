@@ -8,10 +8,18 @@
     flex-direction: column;
     gap: 2px;
     background-color: $secondary;
+    border-radius: 18px;
 
     h1{
         font-size: 26px;
         color: $background;
     }
+}
+
+.atividades {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 

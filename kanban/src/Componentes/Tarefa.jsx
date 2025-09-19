@@ -38,18 +38,29 @@ export function Tarefa({ tarefa }){
  
  
     return(
-        <article>
-            <h3 id={`tarefa: ${Tarefa.id}`}>{tarefa.descricao}</h3>
+        <article className='tarefa'>
+            <header>
+                <h3 id={`tarefa: ${Tarefa.id}`}>{tarefa.descricao}</h3>
+            </header>
+
             <dl>
                 <dt>Setor:</dt>
                 <dd>{tarefa.nomeSetor}</dd>
  
                 <dt>Prioridade:</dt>
                 <dd>{tarefa.prioridade}</dd>
-            </dl>            
-            <button onClick={() => navigate(`/editarTarefa/${tarefa.id}`)}>Editar</button>
-            <button onClick={()=> excluirTarefa(tarefa.id)}>Excluir</button>
-            <form>
+            </dl>  
+
+            <div className='tarefa_acoes'>
+                <button 
+                    type='button' 
+                    onClick={() => navigate(`/editarTarefa/${tarefa.id}`)}>Editar
+                </button>
+
+                <button onClick={()=> excluirTarefa(tarefa.id)}>Excluir</button>
+            </div> 
+
+            <form className='tarefa_status'>
                 <label>Status:</label>
                  <select
                     id={`status-${tarefa.id}`}
